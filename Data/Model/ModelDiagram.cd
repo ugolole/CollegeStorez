@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Data.Model.ApplicationUser">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAACAAAAAAAAAAAAAAAAAAAAACAwIAAQAAAAA=</HashCode>
+      <FileName>Model\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data.Model.Order">
+    <Position X="1.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAAAAA=</HashCode>
+      <FileName>Model\Order.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Product" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Data.Model.Store">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAADQAAAAAAAAAAAAAAABAgAAAAAAABAAgAAAAAAAAQ=</HashCode>
+      <FileName>Model\Store.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Data.Model.Trend">
+    <Position X="6.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Model\Trend.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Store" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Data.Model.Product">
+    <Position X="1.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAECAAAAAAAAAAAAAAAAEIAAAAAAAAAAAgAAAQAIAAA=</HashCode>
+      <FileName>Model\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Store" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Leelawadee UI" Size="10" />
+</ClassDiagram>
