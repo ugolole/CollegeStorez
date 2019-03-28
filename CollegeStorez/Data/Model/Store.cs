@@ -23,14 +23,7 @@ namespace CollegeStorez.Data.Model
         public int Id { get; set; }
 
         [Required]
-        public string ProductId { get; set; }
-
-        [Required]
-        public string TrendId { get; set; }
-
-        [Required]
         public string UserId { get; set; }
-
 
         [Required]
         public string StoreName { get; set; }

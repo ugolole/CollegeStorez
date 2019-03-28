@@ -30,7 +30,7 @@
   <Class Name="CollegeStorez.Data.Model.Store">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>MAADQAAAAAAAAAAAAAAABAgAAAAAAABAAgAAAAAAAAQ=</HashCode>
+      <HashCode>IAADQAAAAAAAAAAAAAAAAAgAAAAAAABAAgAAAAAAAAQ=</HashCode>
       <FileName>Data\Model\Store.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -38,7 +38,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CollegeStorez.Data.Model.Trend">
-    <Position X="3.75" Y="5.25" Width="1.5" />
+    <Position X="3.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Data\Model\Trend.cs</FileName>
