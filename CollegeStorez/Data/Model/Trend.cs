@@ -23,7 +23,7 @@ namespace CollegeStorez.Data.Model
         public int Id { get; set; }
 
         [Required]
-        public string ProductId { get; set; }
+        public string StoreId { get; set; }
 
         [Required]
         public int Views { get; set; }
@@ -33,14 +33,9 @@ namespace CollegeStorez.Data.Model
         /// <summary>
         /// The Id of the most trending product
         /// </summary>
-        [ForeignKey("ProductId")]
-        public virtual Product Product{get; set;}
-
-        /// <summary>
-        /// List of the most wanted products
-        /// </summary>
-        [Required]
-        public virtual List<Product> MostWanted { get; set; }
+        [ForeignKey("StoreId")]
+        public virtual Store Store{get; set;}
         #endregion Lazy-load Properties
+
     }
 }

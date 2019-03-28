@@ -23,10 +23,14 @@ namespace CollegeStorez.Data.Model
         public int Id { get; set; }
 
         [Required]
-        public string OrderId { get; set; }
+        public string ProductId { get; set; }
 
         [Required]
-        public string ProductId { get; set; }
+        public string TrendId { get; set; }
+
+        [Required]
+        public string UserId { get; set; }
+
 
         [Required]
         public string StoreName { get; set; }
@@ -38,25 +42,24 @@ namespace CollegeStorez.Data.Model
         public DateTime LastModifiedDate { get; set; }
         #endregion Properties
 
-        #region Lazy-load Properties 
-        /// <summary>
-        /// The order for store this will be used to generated trend data
-        /// </summary>
-        [ForeignKey("OrderId")]
-        public virtual Order Order { get; set; }
 
+        #region Properties
         /// <summary>
-        /// The product Id: it will be loaded first because of lazy-load
+        /// The user that created the store
         /// </summary>
-        [ForeignKey("ProductId")]
-        public virtual Product Product {get; set; }
-        
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser User { get; set; }
+
         /// <summary>
         /// A list containing all products related to this Store
         /// It will be populated on the first use thanks to Ef lazy
         /// </summary>
         public virtual List<Product> Products { get; set; }
+     
+        /// <summary>
+        /// A list containing all trending product to this store.
+        /// </summary>
+        public virtual List<Trend> Trends { get; set; }
         #endregion Lazy-load Properties
-
     }
 }

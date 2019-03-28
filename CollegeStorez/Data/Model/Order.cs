@@ -30,17 +30,14 @@ namespace CollegeStorez.Data.Model
 
         [Required]
         public string Type { get; set; }
+        #endregion Properties
 
-        [Required]
-        public string UserId { get; set; }
-
-        #endregion Properties 
-        /// <summary>
-        /// The user that has made a particular order
-        /// </summary>
         #region Lazy-load Properties
-        [ForeignKey("UserId")]
-        public virtual ApplicationUser User { get; set; }
+        /// <summary>
+        /// The parent Product
+        /// </summary>
+        [ForeignKey("ProductId")]
+        public virtual Product Product { get; set; }
         #endregion Lazy-load Properties
     }
 }

@@ -23,7 +23,7 @@ namespace CollegeStorez.Data.Model
         public int Id { get; set; }
 
         [Required]
-        public string TrendId { get; set; }
+        public string StoreId { get; set; }
 
         [Required]
         public string ProductName { get; set; }
@@ -38,13 +38,18 @@ namespace CollegeStorez.Data.Model
         public DateTime LastModifiedDate { get; set; }
         #endregion Properties
 
-        #region Lazy-load Properties
-        /// <summary>
-        /// The Id of the trending table.
-        /// </summary>
-        [ForeignKey("TrendId")]
-        public virtual Trend Trend { get; set; }
 
+        #region Lazy-load Properties 
+        /// <summary>
+        /// The parent of the Product which is store
+        /// </summary>
+        [ForeignKey("StoreId")]
+        public virtual Store Store { get; set; }
+
+        /// <summary>
+        /// Produce a list of orders for a certain product
+        /// </summary>
+        public virtual List<Order> Order { get; set; }
         #endregion Lazy-load Properties
     }
 }

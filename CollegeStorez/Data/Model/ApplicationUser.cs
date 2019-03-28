@@ -46,7 +46,7 @@ namespace CollegeStorez.Data.Model
         /// <summary>
         /// A list of products available for a given user
         /// </summary>
-        public virtual List<Product> Products {get; set;}
+        public virtual List<Store> Stores {get; set;}
         #endregion Lazy-load Properties
     }
 }
