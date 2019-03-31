@@ -36,6 +36,12 @@ namespace CollegeStorez.Data.Model
         public string RetypePassword { get; set; }
 
         [Required]
+        public int Type { get; set; }
+
+        [Required]
+        public int Flags { get; set; }
+
+        [Required]
         public DateTime CreatedDate { get; set; }
 
         [Required]

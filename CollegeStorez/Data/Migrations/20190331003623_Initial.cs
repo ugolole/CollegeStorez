@@ -17,6 +17,8 @@ namespace CollegeStorez.Data.Migrations
                     Email = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     RetypePassword = table.Column<string>(nullable: false),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
@@ -31,7 +33,13 @@ namespace CollegeStorez.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Text = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    Flags = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
+                    ViewCount = table.Column<int>(nullable: false),
                     StoreName = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     LastModifiedDate = table.Column<DateTime>(nullable: false)
@@ -54,6 +62,9 @@ namespace CollegeStorez.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     StoreId = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    FLags = table.Column<int>(nullable: false),
                     ProductName = table.Column<string>(nullable: false),
                     ImagePath = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
@@ -77,6 +88,10 @@ namespace CollegeStorez.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     StoreId = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
                     Views = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -96,10 +111,14 @@ namespace CollegeStorez.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    ProductId = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: false),
+                    Value = table.Column<int>(nullable: false),
+                    Note = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
                     CreateDate = table.Column<DateTime>(nullable: false),
-                    LastModifiedDate = table.Column<DateTime>(nullable: false),
-                    Type = table.Column<string>(nullable: false),
-                    ProductId = table.Column<int>(nullable: true)
+                    LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -109,7 +128,7 @@ namespace CollegeStorez.Data.Migrations
                         column: x => x.ProductId,
                         principalTable: "Product",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

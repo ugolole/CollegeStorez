@@ -26,6 +26,14 @@ namespace CollegeStorez.Data.Model
         public int StoreId { get; set; }
 
         [Required]
+        public string Text { get; set; }
+
+        public string Notes { get; set; }
+
+        [DefaultValue(0)]
+        public int FLags { get; set; }
+
+        [Required]
         public string ProductName { get; set; }
 
         [Required]

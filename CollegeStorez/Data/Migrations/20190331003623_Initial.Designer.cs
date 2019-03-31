@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CollegeStorez.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190328070011_Initial")]
+    [Migration("20190331003623_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,8 @@ namespace CollegeStorez.Data.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
+                    b.Property<int>("Flags");
+
                     b.Property<DateTime>("LastModifiedDate");
 
                     b.Property<string>("Password")
@@ -38,6 +40,8 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<string>("RetypePassword")
                         .IsRequired();
+
+                    b.Property<int>("Type");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -56,12 +60,20 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<DateTime>("CreateDate");
 
+                    b.Property<int>("Flags");
+
                     b.Property<DateTime>("LastModifiedDate");
 
-                    b.Property<int?>("ProductId");
+                    b.Property<string>("Note");
 
-                    b.Property<string>("Type")
+                    b.Property<int>("ProductId");
+
+                    b.Property<string>("Text")
                         .IsRequired();
+
+                    b.Property<int>("Type");
+
+                    b.Property<int>("Value");
 
                     b.HasKey("Id");
 
@@ -78,15 +90,22 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
+                    b.Property<int>("FLags");
+
                     b.Property<string>("ImagePath")
                         .IsRequired();
 
                     b.Property<DateTime>("LastModifiedDate");
 
+                    b.Property<string>("Notes");
+
                     b.Property<string>("ProductName")
                         .IsRequired();
 
                     b.Property<int>("StoreId");
+
+                    b.Property<string>("Text")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -103,13 +122,26 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
+                    b.Property<string>("Description");
+
+                    b.Property<int>("Flags");
+
                     b.Property<DateTime>("LastModifiedDate");
+
+                    b.Property<string>("Notes");
 
                     b.Property<string>("StoreName")
                         .IsRequired();
 
+                    b.Property<string>("Text");
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
                     b.Property<string>("UserId")
                         .IsRequired();
+
+                    b.Property<int>("ViewCount");
 
                     b.HasKey("Id");
 
@@ -124,7 +156,16 @@ namespace CollegeStorez.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Flags");
+
+                    b.Property<string>("Notes");
+
                     b.Property<int>("StoreId");
+
+                    b.Property<string>("Text")
+                        .IsRequired();
+
+                    b.Property<int>("Type");
 
                     b.Property<int>("Views");
 
@@ -139,7 +180,8 @@ namespace CollegeStorez.Data.Migrations
                 {
                     b.HasOne("CollegeStorez.Data.Model.Product", "Product")
                         .WithMany("Order")
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CollegeStorez.Data.Model.Product", b =>

@@ -23,13 +23,28 @@ namespace CollegeStorez.Data.Model
         public int Id { get; set; }
 
         [Required]
+        public int ProductId { get; set; }
+
+        [Required]
+        public string Text { get; set; }
+
+        [Required]
+        public int Value { get; set; }
+
+        public string Note { get; set; }
+
+        [DefaultValue(0)]
+        public int Type { get; set; }
+
+        [DefaultValue(0)]
+        public int Flags { get; set; }
+
+        [Required]
         public DateTime CreateDate { get; set; }
 
         [Required]
         public DateTime LastModifiedDate { get; set; }
 
-        [Required]
-        public string Type { get; set; }
         #endregion Properties
 
         #region Lazy-load Properties

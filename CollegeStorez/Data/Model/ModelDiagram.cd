@@ -3,14 +3,14 @@
   <Class Name="CollegeStorez.Data.Model.ApplicationUser">
     <Position X="1" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAACAAAAACAAAAAAAAAAAAAAAAAAAAACAwIAAQAAAAA=</HashCode>
+      <HashCode>IAACBAAAACAAAAAAAAAAAAAAAAAAAAACAwIAAQAAAAA=</HashCode>
       <FileName>Data\Model\ApplicationUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CollegeStorez.Data.Model.Order">
-    <Position X="7.25" Y="4.5" Width="1.5" />
+    <Position X="7.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAAAAA=</HashCode>
+      <HashCode>MAACBAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAhCAEAAAA=</HashCode>
       <FileName>Data\Model\Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -20,7 +20,7 @@
   <Class Name="CollegeStorez.Data.Model.Product">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAECAAAAAAAAAAAAAAAAEIAAAAAAAAAAAgAAAQAIAAA=</HashCode>
+      <HashCode>IAEiAAAAAAAAAAAAAAAAEIAAAAAAAAAEAgAACQAIAAA=</HashCode>
       <FileName>Data\Model\Product.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -30,7 +30,7 @@
   <Class Name="CollegeStorez.Data.Model.Store">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAADQAAAAAAAAAAAAAAAAAgAAAAAAABAAgAAAAAAAAQ=</HashCode>
+      <HashCode>IAAjRAAAAAAgBEAAAAAAAAgAAAAAAABAAgAACAAAAAQ=</HashCode>
       <FileName>Data\Model\Store.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -38,9 +38,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CollegeStorez.Data.Model.Trend">
-    <Position X="3.25" Y="4.75" Width="1.5" />
+    <Position X="2.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AgAiBAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAACQAAAAA=</HashCode>
       <FileName>Data\Model\Trend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
