@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CollegeStorez.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190331011055_Initial")]
+    [Migration("20190331035052_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -139,6 +139,8 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired();
+
+                    b.Property<int>("Type");
 
                     b.Property<string>("UserId")
                         .IsRequired();

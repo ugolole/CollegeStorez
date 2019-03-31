@@ -38,6 +38,7 @@ namespace CollegeStorez.Data.Migrations
                     Text = table.Column<string>(nullable: true),
                     Notes = table.Column<string>(nullable: true),
                     ImagePath = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
                     Flags = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
                     ViewCount = table.Column<int>(nullable: false),

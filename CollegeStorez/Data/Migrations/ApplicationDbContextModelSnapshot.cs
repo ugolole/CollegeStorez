@@ -138,6 +138,8 @@ namespace CollegeStorez.Data.Migrations
                     b.Property<string>("Title")
                         .IsRequired();
 
+                    b.Property<int>("Type");
+
                     b.Property<string>("UserId")
                         .IsRequired();
 
