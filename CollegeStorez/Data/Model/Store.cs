@@ -31,6 +31,11 @@ namespace CollegeStorez.Data.Model
 
         public string Notes { get; set; }
 
+        public string ImagePath { get; set; }
+
+        [DefaultValue(0)]
+        public int Type { get; set; }
+
         [DefaultValue(0)]
         public int Flags { get; set; }
 

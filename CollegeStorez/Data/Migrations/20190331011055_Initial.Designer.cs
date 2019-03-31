@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CollegeStorez.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190331003623_Initial")]
+    [Migration("20190331011055_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,6 +125,8 @@ namespace CollegeStorez.Data.Migrations
                     b.Property<string>("Description");
 
                     b.Property<int>("Flags");
+
+                    b.Property<string>("ImagePath");
 
                     b.Property<DateTime>("LastModifiedDate");
 

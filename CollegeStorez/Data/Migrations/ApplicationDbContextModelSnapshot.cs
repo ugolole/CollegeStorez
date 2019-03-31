@@ -124,6 +124,8 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<int>("Flags");
 
+                    b.Property<string>("ImagePath");
+
                     b.Property<DateTime>("LastModifiedDate");
 
                     b.Property<string>("Notes");
