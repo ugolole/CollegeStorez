@@ -8,12 +8,15 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
+import { StoreListComponent } from './store-list/store-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    StoreComponent,
+    StoreListComponent
     
   ],
   imports: [
@@ -22,6 +25,8 @@ import { StoreComponent } from './store/store.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'store/:id', component: StoreComponent }
     ])
   ],
   providers: [],

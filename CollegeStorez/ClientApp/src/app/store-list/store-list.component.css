@@ -1,0 +1,8 @@
+ul.stores li{
+  color: #000acb;
+  cursor: pointer;
+}
+
+ul.stores li.selected{
+  background-color: #cccccc;
+}

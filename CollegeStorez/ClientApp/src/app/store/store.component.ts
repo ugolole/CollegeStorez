@@ -4,7 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Store } from "../interfaces/store";
 
 @Component({
-  selector: "store",
+  selector: 'store',
   templateUrl: "./store.component.html",
   styleUrls: ['./store.component.css']
 })
@@ -14,7 +14,7 @@ export class StoreComponent {
 
   constructor(private activatedRouter: ActivatedRoute,
     private router: Router, private http: HttpClient,
-    @Inject('Base_URL') private baseUrl: string) {
+    @Inject('BASE_URL') private baseUrl: string) {
 
     //create an empty store from the store interface
     this.store = <Store>{};

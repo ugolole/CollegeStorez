@@ -37,11 +37,11 @@ var StoreComponent = /** @class */ (function () {
     }
     StoreComponent = __decorate([
         core_1.Component({
-            selector: "store",
+            selector: 'store',
             templateUrl: "./store.component.html",
             styleUrls: ['./store.component.css']
         }),
-        __param(3, core_1.Inject('Base_URL'))
+        __param(3, core_1.Inject('BASE_URL'))
     ], StoreComponent);
     return StoreComponent;
 }());

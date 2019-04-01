@@ -1,0 +1,8 @@
+<h2>{{title}}</h2>
+<ul class="stores">
+  <li *ngFor="let store of stores"
+      [class.selected] ="store === selectedStore"
+      (click) ="onSelect(store)">
+    <span>{{store.Title}}</span>
+  </li>
+</ul>
