@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\interfaces\store.ts" />
+    <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
     <None Remove="ClientApp\src\app\store\store.component.ts" />
   </ItemGroup>
@@ -48,6 +49,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\store.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts" />
   </ItemGroup>

@@ -30,7 +30,7 @@ var StoreListComponent = /** @class */ (function () {
                 this.title = "Random Stores";
                 url += "ByTitle/";
                 break;
-            case "Random":
+            case "random":
                 this.title = "Random Stores";
                 url += "Random/";
                 break;

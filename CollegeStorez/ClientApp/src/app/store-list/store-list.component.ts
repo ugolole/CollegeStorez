@@ -14,6 +14,7 @@ export class StoreListComponent implements OnInit {
   title: string;
   selectedStore: Store;
   stores: Store[];
+ 
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string,
     private router: Router) { }
@@ -33,7 +34,7 @@ export class StoreListComponent implements OnInit {
           this.title = "Random Stores";
           url += "ByTitle/";
           break;
-        case "Random":
+        case "random":
           this.title = "Random Stores";
           url += "Random/";
           break;
