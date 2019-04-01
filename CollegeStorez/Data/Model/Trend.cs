@@ -36,9 +36,13 @@ namespace CollegeStorez.Data.Model
         [DefaultValue(0)]
         public int Flags { get; set; }
 
-
         [Required]
         public int Views { get; set; }
+        [Required]
+        public DateTime CreatedDate { get; set; }
+
+        [Required]
+        public DateTime LastModifiedDate { get; set; }
         #endregion Properties
 
         #region Lazy-load Properties

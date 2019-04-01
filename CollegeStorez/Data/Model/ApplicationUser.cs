@@ -28,12 +28,8 @@ namespace CollegeStorez.Data.Model
 
         [Required]
         public string Email { get; set; }
-
-        [Required]
-        public string Password { get; set; }
-
-        [Required]
-        public string RetypePassword { get; set; }
+        public string DisplayName { get; set; }
+        public string Notes { get; set; }
 
         [Required]
         public int Type { get; set; }

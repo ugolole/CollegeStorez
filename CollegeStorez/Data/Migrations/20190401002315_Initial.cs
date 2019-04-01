@@ -15,8 +15,8 @@ namespace CollegeStorez.Data.Migrations
                     Id = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(maxLength: 128, nullable: false),
                     Email = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: false),
-                    RetypePassword = table.Column<string>(nullable: false),
+                    DisplayName = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
                     Type = table.Column<int>(nullable: false),
                     Flags = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
@@ -94,7 +94,9 @@ namespace CollegeStorez.Data.Migrations
                     Notes = table.Column<string>(nullable: true),
                     Type = table.Column<int>(nullable: false),
                     Flags = table.Column<int>(nullable: false),
-                    Views = table.Column<int>(nullable: false)
+                    Views = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -26,6 +26,8 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
+                    b.Property<string>("DisplayName");
+
                     b.Property<string>("Email")
                         .IsRequired();
 
@@ -33,11 +35,7 @@ namespace CollegeStorez.Data.Migrations
 
                     b.Property<DateTime>("LastModifiedDate");
 
-                    b.Property<string>("Password")
-                        .IsRequired();
-
-                    b.Property<string>("RetypePassword")
-                        .IsRequired();
+                    b.Property<string>("Notes");
 
                     b.Property<int>("Type");
 
@@ -158,7 +156,11 @@ namespace CollegeStorez.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedDate");
+
                     b.Property<int>("Flags");
+
+                    b.Property<DateTime>("LastModifiedDate");
 
                     b.Property<string>("Notes");
 
