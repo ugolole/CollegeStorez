@@ -28,6 +28,7 @@ export class StoreComponent {
     if (id) {
       var url = this.baseUrl + "api/store/" + id;
 
+      //This run the httpClient observable get method
       this.http.get<Store>(url).subscribe(result => {
         this.store = result;
       });
