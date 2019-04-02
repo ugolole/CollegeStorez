@@ -160,7 +160,7 @@ namespace CollegeStorez.Data
                         ProductId = product.Id,
                         Text = "sample order created by seeder ",
                         Value = 12,
-                        CreateDate = createdDate,
+                        CreatedDate = createdDate,
                         LastModifiedDate = createdDate
                     });
                 }

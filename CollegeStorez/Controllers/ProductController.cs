@@ -145,9 +145,35 @@ namespace CollegeStorez.Controllers
         /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id) {
+            //retrieve the product from the database
+            var product = DbContext.Products.Where(i => i.Id == id).FirstOrDefault();
 
-            return null;
+            //handle requests asking for non-existing products
+            if (product == null)
+            {
+                return NotFound(new
+                {
+                    Error = String.Format("Product ID {0} has not been found", id)
+                });
+            }
+            //remove the product from the DbContext
+            DbContext.Products.Remove(product);
+            //persist the changes into the database
+            DbContext.SaveChanges();
+            return new OkResult();
         }
         #endregion
+
+        //GET api/product/all
+        [HttpGet("All/{storeId}")]
+        public IActionResult All(int storeId)
+        {
+            var products = DbContext.Products.Where(p => p.StoreId == storeId).ToArray();
+
+            return new JsonResult(products.Adapt<ProductViewModel[]>(), new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            });
+        }
     }
 }
