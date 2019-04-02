@@ -66,6 +66,11 @@ namespace CollegeStorez.Controllers
 
             // override those properties 
             //   that should be set from the server-side only
+            order.ProductId = model.ProductId;
+            order.Text = model.Text;
+            order.Note = model.Note;
+
+            //properties set from server-side
             order.CreatedDate = DateTime.Now;
             order.LastModifiedDate = order.CreatedDate;
 
@@ -76,6 +81,50 @@ namespace CollegeStorez.Controllers
 
             // return the newly-created Answer to the client.
             return new JsonResult(order.Adapt<OrderViewModel>(), new JsonSerializerSettings(){
+                Formatting = Formatting.Indented
+            });
+        }
+
+        
+        /// <summary>
+        /// Edit the Order with the given {id}
+        /// </summary>
+        /// <param name="model">The OrderViewModel containg the data</param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult Post([FromBody]OrderViewModel model)
+        {
+            // return a generic HTTP Status 500 (Server Error)
+            // if the client payload is invalid.
+            if (model == null) return new StatusCodeResult(500);
+
+            // retrieve the order to edit
+            var order = DbContext.Orders.Where(q => q.Id == model.Id).FirstOrDefault();
+
+            // handle requests asking for non-existing answers
+            if (order == null)
+            {
+                return NotFound(new
+                {
+                    Error = String.Format("Order ID {0} has not been found", model.Id)
+                });
+            }
+            // handle the update (without object-mapping)
+            // by manually assigning the properties
+            // we want to accept from the request
+            order.ProductId = model.ProductId;
+            order.Text = model.Text;
+            order.Value = model.Value;
+            order.Note = model.Note;
+
+            // properties set from server-side
+            order.LastModifiedDate = order.CreatedDate;
+            // persist the changes into the Database.
+            DbContext.SaveChanges();
+            // return the updated Order to the client.
+            return new JsonResult(order.Adapt<OrderViewModel>(),
+            new JsonSerializerSettings()
+            {
                 Formatting = Formatting.Indented
             });
         }
