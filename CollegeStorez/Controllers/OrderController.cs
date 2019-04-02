@@ -19,13 +19,14 @@ namespace CollegeStorez.Controllers
         #endregion
 
         #region Constructor
-        public OrderController (ApplicationDbContext context)
+        public OrderController(ApplicationDbContext context)
         {
             //instantiate the applicationDbContext through DI
             DbContext = context;
         }
         #endregion
 
+        #region RESTful conventions methods
         /// <summary>
         /// Retrieves the order for a given ID
         /// </summary>
@@ -37,14 +38,14 @@ namespace CollegeStorez.Controllers
             var order = DbContext.Orders.Where(i => i.Id == id).FirstOrDefault();
 
             //handle request asking for non-existing order
-            if(order == null)
+            if (order == null)
             {
                 return NotFound(new
                 {
                     Error = String.Format("Order ID {0} has not been found", id)
                 });
             }
-            return new JsonResult( order.Adapt<OrderViewModel>(), new JsonSerializerSettings()
+            return new JsonResult(order.Adapt<OrderViewModel>(), new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented
             });
@@ -80,12 +81,12 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             // return the newly-created Answer to the client.
-            return new JsonResult(order.Adapt<OrderViewModel>(), new JsonSerializerSettings(){
+            return new JsonResult(order.Adapt<OrderViewModel>(), new JsonSerializerSettings() {
                 Formatting = Formatting.Indented
             });
         }
 
-        
+
         /// <summary>
         /// Edit the Order with the given {id}
         /// </summary>
@@ -124,6 +125,46 @@ namespace CollegeStorez.Controllers
             // return the updated Order to the client.
             return new JsonResult(order.Adapt<OrderViewModel>(),
             new JsonSerializerSettings()
+            {
+                Formatting = Formatting.Indented
+            });
+        }
+
+        /// <summary>
+        /// Deletes the Order with the given {id} from the Database
+        /// </summary>
+        /// <param name="id">The ID of an existing Order</param>
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            // retrieve the order from the Database
+            var order = DbContext.Orders.Where(i => i.Id == id).FirstOrDefault();
+            // handle requests asking for non-existing order
+            if (order == null)
+            {
+                return NotFound(new
+                {
+                    Error = String.Format("order ID {0} has not been found", id)
+                });
+            }
+            // remove the quiz from the DbContext.
+            DbContext.Orders.Remove(order);
+            // persist the changes into the Database.
+            DbContext.SaveChanges();
+            // return an HTTP Status 200 (OK).
+            return new OkResult();
+        }
+        #endregion
+
+        // GET api/order/all
+        [HttpGet("All/{productId}")]
+        public IActionResult All(int productId)
+        {
+            var orders = DbContext.Orders
+            .Where(q => q.ProductId == productId)
+            .ToArray();
+            return new JsonResult(
+            orders.Adapt<OrderViewModel[]>(), new JsonSerializerSettings()
             {
                 Formatting = Formatting.Indented
             });
