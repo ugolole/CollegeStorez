@@ -37,7 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\about\about.component.ts" />
     <None Remove="ClientApp\src\app\interfaces\store.ts" />
+    <None Remove="ClientApp\src\app\login\login.component.ts" />
+    <None Remove="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
     <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
     <None Remove="ClientApp\src\app\store\store.component.ts" />
@@ -48,7 +51,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\about\about.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\store.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts" />

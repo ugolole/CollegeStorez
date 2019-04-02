@@ -8,7 +8,11 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { StoreComponent } from './store/store.component';
-import { StoreListComponent } from './store-list/store-list.component'
+import { StoreListComponent } from './store-list/store-list.component';
+import { StoreEditComponent } from './store-edit/store-edit.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { StoreListComponent } from './store-list/store-list.component'
     NavMenuComponent,
     HomeComponent,
     StoreComponent,
-    StoreListComponent
+    StoreListComponent,
+    StoreEditComponent,
+    AboutComponent,
+    LoginComponent,
+    PageNotFoundComponent
     
   ],
   imports: [
@@ -26,7 +34,11 @@ import { StoreListComponent } from './store-list/store-list.component'
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'store/:id', component: StoreComponent }
+      { path: 'store/:id', component: StoreComponent },
+      { path: 'store/create', component: StoreEditComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'login', component: LoginComponent },
+      { path: "**", component: PageNotFoundComponent }
     ])
   ],
   providers: [],
