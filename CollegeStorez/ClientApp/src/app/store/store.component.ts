@@ -36,4 +36,23 @@ export class StoreComponent {
       this.router.navigate(['home']);
     }
   }
+
+  onEdit() {
+    this.router.navigate(["store/edit", this.store.Id]);
+  }
+
+  onDelete() {
+    //the confirm is a javascript technique that adds a pop-up before the item gets
+    //deleted that requires a user to confirm before deletion.
+    if (confirm("Do you really want to delete this store?")) {
+      var url = this.baseUrl + "api/store/" + this.store.Id;
+      console.log("Url "+url)
+      this.http
+        .delete(url)
+        .subscribe(res  => {
+          console.log("Store " + this.store.Id + " has been deleted.");
+          this.router.navigate(["home"]);
+        }, error => console.log(error));
+    }
+  }
 }

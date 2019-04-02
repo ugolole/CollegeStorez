@@ -35,6 +35,24 @@ var StoreComponent = /** @class */ (function () {
             this.router.navigate(['home']);
         }
     }
+    StoreComponent.prototype.onEdit = function () {
+        this.router.navigate(["store/edit", this.store.Id]);
+    };
+    StoreComponent.prototype.onDelete = function () {
+        var _this = this;
+        //the confirm is a javascript technique that adds a pop-up before the item gets
+        //deleted that requires a user to confirm before deletion.
+        if (confirm("Do you really want to delete this store?")) {
+            var url = this.baseUrl + "api/store/" + this.store.Id;
+            console.log("Url " + url);
+            this.http
+                .delete(url)
+                .subscribe(function (res) {
+                console.log("Store " + _this.store.Id + " has been deleted.");
+                _this.router.navigate(["home"]);
+            }, function (error) { return console.log(error); });
+        }
+    };
     StoreComponent = __decorate([
         core_1.Component({
             selector: 'store',

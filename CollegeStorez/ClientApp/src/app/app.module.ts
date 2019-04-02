@@ -19,8 +19,8 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    StoreComponent,
     StoreListComponent,
+    StoreComponent,
     StoreEditComponent,
     AboutComponent,
     LoginComponent,
@@ -34,8 +34,9 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'store/:id', component: StoreComponent },
       { path: 'store/create', component: StoreEditComponent },
+      { path: 'store/edit/:id', component: StoreEditComponent },
+      { path: 'store/:id', component: StoreComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
       { path: "**", component: PageNotFoundComponent }

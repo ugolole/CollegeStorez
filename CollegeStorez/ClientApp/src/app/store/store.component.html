@@ -11,4 +11,8 @@
       <textarea [ngModel]="store.Description" placeholder="Insert a suitable description..."></textarea>
     </li>
   </ul>
+  <div>
+    <input type="button" value="Edit" (click)="onEdit()"/>
+    <input type="button" value="Delete this Store" (click)="onDelete()"/>
+  </div>
 </div>

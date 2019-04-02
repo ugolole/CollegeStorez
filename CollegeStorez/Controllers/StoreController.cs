@@ -69,6 +69,7 @@ namespace CollegeStorez.Controllers
             //properties taken from the request
             store.Title = model.Title;
             store.Description = model.Description;
+            store.StoreName = model.StoreName;
             store.Text = model.Text;
             store.Notes = model.Notes;
 
@@ -120,6 +121,7 @@ namespace CollegeStorez.Controllers
             //we want to accept form teh request
             store.Title = model.Title;
             store.Description = model.Description;
+            store.StoreName = model.StoreName;
             store.Text = model.Text;
             store.Notes = model.Notes;
 
@@ -142,7 +144,7 @@ namespace CollegeStorez.Controllers
         /// </summary>
         /// <param name="id">The Id of the existing test</param>
         /// <returns></returns>
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             //retrieve the store from the database

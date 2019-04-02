@@ -22,7 +22,7 @@ var StoreEditComponent = /** @class */ (function () {
         if (id) {
             this.editMode = true;
             //fetch the store from server
-            var url = this.baseUrl + 'api/store' + id;
+            var url = this.baseUrl + 'api/store/' + id;
             this.http.get(url).subscribe(function (result) {
                 _this.store = result;
                 _this.title = "Edit - " + _this.store.Title;
@@ -36,7 +36,9 @@ var StoreEditComponent = /** @class */ (function () {
     StoreEditComponent.prototype.onSubmit = function (store) {
         var _this = this;
         var url = this.baseUrl + 'api/store';
-        if (this.editMode) {
+        //With Edit mode binding is used to acquire the values allowing you to edit them
+        //with easy.
+        if (this.editMode) { //For editing the Store
             this.http
                 .post(url, store)
                 .subscribe(function (result) {
@@ -45,7 +47,7 @@ var StoreEditComponent = /** @class */ (function () {
                 _this.router.navigate(["home"]);
             }, function (error) { return console.log(error); });
         }
-        else {
+        else { //For creating the Store 
             this.http
                 .put(url, store)
                 .subscribe(function (result) {

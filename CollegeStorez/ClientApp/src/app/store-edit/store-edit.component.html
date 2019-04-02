@@ -1,0 +1,31 @@
+<h2>{{title}}</h2>
+<div class="store-list">
+  <div>
+    <label for="title">Store Title: </label>
+    <br />
+    <input type="text" id="title" [(ngModel)]="store.Title"
+         placeholder="choose a Title..." />
+  </div>
+  <div>
+    <label for="name">Store Name: </label>
+    <br />
+    <input type="text" id="name" [(ngModel)]="store.StoreName"
+           placeholder="choose a Name for Store..."/>
+  </div>
+  <div>
+    <label for="description">Store Description:</label>
+    <br />
+    <input type="text" id="description"
+           [(ngModel)]="store.Description" placeholder="Enter a description..." />
+  </div>
+  <div>
+    <label for="text">Store Informative text:</label>
+    <br />
+    <textarea id="text" [(ngModel)]="store.Text" placeholder="enter a text..."></textarea>
+  </div>
+  <div>
+    <input *ngIf="editMode" type="button" value="Apply Changes" (click)="onSubmit(store)" />
+    <input *ngIf="!editMode" type="button" value="Create the Store!" (click)="onSubmit(store)" />
+    <input type="button" value="Cancel" (click)="onBack()" />
+  </div>
+</div>

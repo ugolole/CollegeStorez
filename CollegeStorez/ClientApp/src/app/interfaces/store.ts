@@ -3,5 +3,6 @@ export interface Store{
   Title: string,
   Description: string,
   Text: string,
-  ImagePath: string
+  ImagePath: string,
+  StoreName: string
 }
