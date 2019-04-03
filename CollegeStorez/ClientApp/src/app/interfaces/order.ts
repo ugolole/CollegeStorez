@@ -1,4 +1,4 @@
-export interface Answer {
+export interface Order {
   Id: number;
   ProductId: number;
   Text: string;
