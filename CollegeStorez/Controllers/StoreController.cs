@@ -11,19 +11,11 @@ using Newtonsoft.Json;
 
 namespace CollegeStorez.Controllers
 {
-    [Route("api/[controller]")]
-    public class StoreController : Controller
+    public class StoreController : BaseApiController
     {
 
-        #region Private Fields
-        private ApplicationDbContext DbContext;
-        #endregion Private Fields
-
         #region Constructor
-        public StoreController(ApplicationDbContext context)
-        {
-            DbContext = context;
-        }
+        public StoreController(ApplicationDbContext context) : base(context) { }
         #endregion Constructor 
 
         /// <summary>
@@ -45,10 +37,7 @@ namespace CollegeStorez.Controllers
                 });
             }
 
-            return new JsonResult(store.Adapt<StoreViewModel>(), new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(store.Adapt<StoreViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -86,10 +75,7 @@ namespace CollegeStorez.Controllers
             //persist the changes into the Database.
             DbContext.SaveChanges();
 
-            return new JsonResult(store.Adapt<StoreViewModel>(), new JsonSerializerSettings
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(store.Adapt<StoreViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -132,10 +118,7 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             //return the update Store to the client
-            return new JsonResult(store.Adapt<StoreViewModel>(), new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(store.Adapt<StoreViewModel>(), JsonSettings);
 
         }
 
@@ -182,11 +165,7 @@ namespace CollegeStorez.Controllers
                 .Take(num)
                 .ToArray();
 
-            return new JsonResult(latest.Adapt<StoreViewModel[]>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(latest.Adapt<StoreViewModel[]>(), JsonSettings);
         }
 
         /// <summary>
@@ -203,11 +182,7 @@ namespace CollegeStorez.Controllers
                 .Take(num)
                 .ToArray();
 
-            return new JsonResult(byTitle.Adapt<StoreViewModel[]>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(byTitle.Adapt<StoreViewModel[]>(), JsonSettings);
         }
 
         /// <summary>
@@ -224,11 +199,7 @@ namespace CollegeStorez.Controllers
                 .Take(num)
                 .ToArray();
 
-            return new JsonResult(random.Adapt<StoreViewModel[]>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(random.Adapt<StoreViewModel[]>(), JsonSettings);
         }
     }
 }

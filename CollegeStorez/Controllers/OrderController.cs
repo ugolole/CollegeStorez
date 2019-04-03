@@ -12,18 +12,12 @@ using Mapster;
 namespace CollegeStorez.Controllers
 {
     [Route("api/[controller]")]
-    public class OrderController : Controller
+    public class OrderController : BaseApiController
     {
-        #region Private Fields
-        private ApplicationDbContext DbContext;
-        #endregion
+
 
         #region Constructor
-        public OrderController(ApplicationDbContext context)
-        {
-            //instantiate the applicationDbContext through DI
-            DbContext = context;
-        }
+        public OrderController(ApplicationDbContext context) : base(context) { }
         #endregion
 
         #region RESTful conventions methods
@@ -45,10 +39,7 @@ namespace CollegeStorez.Controllers
                     Error = String.Format("Order ID {0} has not been found", id)
                 });
             }
-            return new JsonResult(order.Adapt<OrderViewModel>(), new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(order.Adapt<OrderViewModel>(), , JsonSettings);
         }
 
         /// <summary>
@@ -81,9 +72,7 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             // return the newly-created Answer to the client.
-            return new JsonResult(order.Adapt<OrderViewModel>(), new JsonSerializerSettings() {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(order.Adapt<OrderViewModel>(), , JsonSettings);
         }
 
 
@@ -123,11 +112,7 @@ namespace CollegeStorez.Controllers
             // persist the changes into the Database.
             DbContext.SaveChanges();
             // return the updated Order to the client.
-            return new JsonResult(order.Adapt<OrderViewModel>(),
-            new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(order.Adapt<OrderViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -164,10 +149,7 @@ namespace CollegeStorez.Controllers
             .Where(q => q.ProductId == productId)
             .ToArray();
             return new JsonResult(
-            orders.Adapt<OrderViewModel[]>(), new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            orders.Adapt<OrderViewModel[]>(), JsonSettings);
         }
     }
 }

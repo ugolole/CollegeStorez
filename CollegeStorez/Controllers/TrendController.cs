@@ -11,17 +11,12 @@ using Mapster;
 namespace CollegeStorez.Controllers
 {
     [Route("api/[controller]")]
-    public class TrendController : Controller
+    public class TrendController : BaseApiController
     {
-        #region Private Fields
-        private ApplicationDbContext DbContext;
-        #endregion
+        
 
         #region Constructor
-        public TrendController(ApplicationDbContext context)
-        {
-            DbContext = context;
-        }
+        public TrendController(ApplicationDbContext context): base(context) { }
         #endregion
 
         #region RESTful conventions methods
@@ -43,11 +38,7 @@ namespace CollegeStorez.Controllers
                     Error = String.Format("Trend ID {0} has not been found", id)
                 });
             }
-            return new JsonResult(trend.Adapt<TrendViewModel>(),
-            new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(trend.Adapt<TrendViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -75,11 +66,7 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             // return the newly-created Result to the client.
-            return new JsonResult(trend.Adapt<TrendViewModel>(),
-            new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(trend.Adapt<TrendViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -119,11 +106,7 @@ namespace CollegeStorez.Controllers
             // persist the changes into the Database.
             DbContext.SaveChanges();
             // return the updated Quiz to the client.
-            return new JsonResult(trend.Adapt<TrendViewModel>(),
-            new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(trend.Adapt<TrendViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -162,11 +145,7 @@ namespace CollegeStorez.Controllers
             .Where(q => q.StoreId == storeId)
             .ToArray();
             return new JsonResult(
-            results.Adapt<TrendViewModel[]>(),
-            new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            results.Adapt<TrendViewModel[]>(), JsonSettings);
         }
     }
 }

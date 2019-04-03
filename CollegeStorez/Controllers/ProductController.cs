@@ -12,18 +12,12 @@ using CollegeStorez.Data.Model;
 namespace CollegeStorez.Controllers
 {
     [Route("api/[controller]")]
-    public class ProductController : Controller
+    public class ProductController : BaseApiController
     {
-        #region Private Fields
-        private ApplicationDbContext DbContext;
-        #endregion
+      
 
         #region Construtor
-        public ProductController(ApplicationDbContext context)
-        {
-            //Instantiate the Application through DI
-            DbContext = context;
-        }
+        public ProductController(ApplicationDbContext context) : base(context) { }
         #endregion Constructor
 
         #region RESTful conventions method
@@ -45,11 +39,7 @@ namespace CollegeStorez.Controllers
                     Error = String.Format("Product ID {0} has not been found ", id)
                 });
             }
-            return new JsonResult(product.Adapt<ProductViewModel>(), 
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(product.Adapt<ProductViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -85,10 +75,7 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             //return the newly-created Product to the client
-            return new JsonResult(product.Adapt<ProductViewModel>(),
-                new JsonSerializerSettings() {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(product.Adapt<ProductViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -131,11 +118,7 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             //return th updated Product to the client
-            return new JsonResult(product.Adapt<ProductViewModel>(),
-                new JsonSerializerSettings()
-                {
-                    Formatting = Formatting.Indented
-                });
+            return new JsonResult(product.Adapt<ProductViewModel>(), JsonSettings);
         }
 
         /// <summary>
@@ -170,10 +153,7 @@ namespace CollegeStorez.Controllers
         {
             var products = DbContext.Products.Where(p => p.StoreId == storeId).ToArray();
 
-            return new JsonResult(products.Adapt<ProductViewModel[]>(), new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented
-            });
+            return new JsonResult(products.Adapt<ProductViewModel[]>(), JsonSettings);
         }
     }
 }
