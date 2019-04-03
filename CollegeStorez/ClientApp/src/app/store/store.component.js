@@ -25,8 +25,10 @@ var StoreComponent = /** @class */ (function () {
         var id = +this.activatedRouter.snapshot.params["id"];
         console.log(id);
         if (id) {
+            //communicates with the server-side controllers to get the needed data
             var url = this.baseUrl + "api/store/" + id;
-            //This run the httpClient observable get method
+            //Merge the server side data with the client side interface to prepare information
+            //for rendering into the server side.
             this.http.get(url).subscribe(function (result) {
                 _this.store = result;
             });
@@ -36,6 +38,7 @@ var StoreComponent = /** @class */ (function () {
             this.router.navigate(['home']);
         }
     }
+    //rediret to the store-edit component and pass the current id as well.
     StoreComponent.prototype.onEdit = function () {
         this.router.navigate(["store/edit", this.store.Id]);
     };

@@ -39,7 +39,7 @@ namespace CollegeStorez.Controllers
                     Error = String.Format("Order ID {0} has not been found", id)
                 });
             }
-            return new JsonResult(order.Adapt<OrderViewModel>(), , JsonSettings);
+            return new JsonResult(order.Adapt<OrderViewModel>(),  JsonSettings);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace CollegeStorez.Controllers
             DbContext.SaveChanges();
 
             // return the newly-created Answer to the client.
-            return new JsonResult(order.Adapt<OrderViewModel>(), , JsonSettings);
+            return new JsonResult(order.Adapt<OrderViewModel>(),  JsonSettings);
         }
 
 

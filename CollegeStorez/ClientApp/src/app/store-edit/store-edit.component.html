@@ -28,4 +28,5 @@
     <input *ngIf="!editMode" type="button" value="Create the Store!" (click)="onSubmit(store)" />
     <input type="button" value="Cancel" (click)="onBack()" />
   </div>
+  <product-list [store] ="store" *ngIf="editMode"></product-list>
 </div>

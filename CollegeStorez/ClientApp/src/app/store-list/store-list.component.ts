@@ -22,6 +22,7 @@ export class StoreListComponent implements OnInit {
     ngOnInit(){
       console.log("StoresListComponent" + "instantiated with the following class: " + this.class);
 
+      //acquire data from the server through the controllers
       var url = this.baseUrl + "api/store/";
 
       switch (this.class) {

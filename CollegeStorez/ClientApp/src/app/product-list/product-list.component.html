@@ -1,0 +1,28 @@
+<h3>Products</h3>
+<div *ngIf="products.length > 0">
+  <table class="product">
+    <thead>
+      <tr>
+        <th>Text</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.Text}}</td>
+        <td>
+          <input type="button" value="Edit"
+                 (click)="onEdit(product)" />
+          <input type="button" value="Delete"
+                 (click)="onDelete(product)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="products.length == 0">
+  This Store has no prodtucts (yet):
+  click the <strong>Add a new Product</strong> button to add the first
+  one!
+</div>
+<input type="button" value="Add a new Question" (click)="onCreate()" />

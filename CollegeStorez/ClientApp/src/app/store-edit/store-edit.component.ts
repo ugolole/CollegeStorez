@@ -21,8 +21,10 @@ export class StoreEditComponent {
   constructor(private activeRoute: ActivatedRoute, private router: Router,
     private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
 
+    //create an empty store from the store interface
     this.store = <Store>{};
 
+    //acquire the id for that instance using a short hand technique
     var id = +this.activeRoute.snapshot.params["id"];
 
     if (id) {
@@ -30,6 +32,8 @@ export class StoreEditComponent {
 
       //fetch the store from server
       var url = this.baseUrl + 'api/store/' + id;
+
+      //connect the server side data to the client side interface.
       this.http.get<Store>(url).subscribe(result => {
         this.store = result;
         this.title = "Edit - " + this.store.Title;

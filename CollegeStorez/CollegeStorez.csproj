@@ -38,9 +38,13 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\about\about.component.ts" />
+    <None Remove="ClientApp\src\app\interfaces\order.ts" />
+    <None Remove="ClientApp\src\app\interfaces\product.ts" />
     <None Remove="ClientApp\src\app\interfaces\store.ts" />
+    <None Remove="ClientApp\src\app\interfaces\trend.ts" />
     <None Remove="ClientApp\src\app\login\login.component.ts" />
     <None Remove="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
+    <None Remove="ClientApp\src\app\product-list\product-list.component.ts" />
     <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
     <None Remove="ClientApp\src\app\store\store.component.ts" />
@@ -52,9 +56,13 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\about\about.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\order.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\product.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\store.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\trend.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\product-list\product-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts" />

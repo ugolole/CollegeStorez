@@ -17,12 +17,15 @@ var StoreEditComponent = /** @class */ (function () {
         this.router = router;
         this.http = http;
         this.baseUrl = baseUrl;
+        //create an empty store from the store interface
         this.store = {};
+        //acquire the id for that instance using a short hand technique
         var id = +this.activeRoute.snapshot.params["id"];
         if (id) {
             this.editMode = true;
             //fetch the store from server
             var url = this.baseUrl + 'api/store/' + id;
+            //connect the server side data to the client side interface.
             this.http.get(url).subscribe(function (result) {
                 _this.store = result;
                 _this.title = "Edit - " + _this.store.Title;

@@ -19,6 +19,7 @@ var StoreListComponent = /** @class */ (function () {
     StoreListComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log("StoresListComponent" + "instantiated with the following class: " + this.class);
+        //acquire data from the server through the controllers
         var url = this.baseUrl + "api/store/";
         switch (this.class) {
             case "latest":
