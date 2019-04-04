@@ -50,13 +50,10 @@
     <None Remove="ClientApp\src\app\product-list\product-list.component.ts" />
     <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
+    <None Remove="ClientApp\src\app\store-search\store-search.component.ts" />
     <None Remove="ClientApp\src\app\store\store.component.ts" />
     <None Remove="ClientApp\src\app\trend-edit\trend-edit.compontent.ts" />
     <None Remove="ClientApp\src\app\trend-list\trend-list.component.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,6 +70,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\product-list\product-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store-search\store-search.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\trend-edit\trend-edit.compontent.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\trend-list\trend-list.component.ts" />

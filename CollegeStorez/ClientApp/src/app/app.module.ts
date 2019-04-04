@@ -19,6 +19,7 @@ import { OrderEditComponent } from './order-edit/order-edit.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { TrendListComponent } from './trend-list/trend-list.component';
 import { TrendEditComponent } from './trend-edit/trend-edit.compontent';
+import { StoreSearchComponent } from './store-search/store-search.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TrendEditComponent } from './trend-edit/trend-edit.compontent';
     OrderEditComponent,
     OrderListComponent,
     TrendListComponent,
-    TrendEditComponent
+    TrendEditComponent,
+    StoreSearchComponent
     
   ],
   imports: [
