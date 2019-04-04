@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<div class="product-edit">
+  <div>
+    <label for="text">Product text:</label>
+    <br />
+<textarea id="text" [(ngModel)]="product.Text"
+          placeholder="enter a suitable text..."></textarea>
+  </div>
+  <div>
+    <input *ngIf="editMode" type="button" value="Apply Changes"
+           (click)="onSubmit(product)" />
+    <input *ngIf="!editMode" type="button" value="Create the Product!" (click)="onSubmit(product)" />
+    <input type="button" value="Cancel" (click)="onBack()" />
+  </div>
+  <order-list *ngIf="editMode" [product]="product"></order-list>
+</div>

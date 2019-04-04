@@ -1,0 +1,18 @@
+<div *ngIf="store" class="store">
+  <h2>{{store.Title}}</h2>
+  <ul>
+    <li>
+      <label>Title:</label>
+      <input [ngModel]="store.Title" placeholder="insert the Title ...."/>
+    </li>
+
+    <li>
+      <label>Description</label>
+      <textarea [ngModel]="store.Description" placeholder="Insert a suitable description..."></textarea>
+    </li>
+  </ul>
+  <div>
+    <input type="button" value="Edit" (click)="onEdit()"/>
+    <input type="button" value="Delete this Store" (click)="onDelete()"/>
+  </div>
+</div>

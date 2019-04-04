@@ -1,0 +1,3 @@
+.store-edit input[type="text"], .store-edit textarea{
+  min-width: 500px;
+}

@@ -1,0 +1,22 @@
+<h2>{{title}}</h2>
+<div class="trend-edit">
+  <div>
+    <label for="text">Trend text:</label>
+    <br />
+    <textarea id="text" [(ngModel)]="trend.Text" placeholder="enter a suitable text..."></textarea>
+  </div>
+
+  <div>
+    <label for="Views">Views Expected for trend:</label>
+    <br />
+    <input type="number" id="Views" name="Views"
+           [(ngModel)]="trend.Views" />
+  </div>
+
+  <div>
+    <input *ngIf="editMode" type="button" value="Apply Changes" (click)="onSubmit(trend)" />
+    <input *ngIf="!editMode" type="button" value="Create the Result!" (click)="onSubmit(trend)" />
+    <input type="button" value="Cancel" (click)="onBack()" />
+  </div>
+
+</div>

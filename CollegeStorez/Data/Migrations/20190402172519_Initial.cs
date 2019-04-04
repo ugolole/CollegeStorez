@@ -15,8 +15,10 @@ namespace CollegeStorez.Data.Migrations
                     Id = table.Column<string>(nullable: false),
                     UserName = table.Column<string>(maxLength: 128, nullable: false),
                     Email = table.Column<string>(nullable: false),
-                    Password = table.Column<string>(nullable: false),
-                    RetypePassword = table.Column<string>(nullable: false),
+                    DisplayName = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
@@ -31,7 +33,15 @@ namespace CollegeStorez.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    Text = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    ImagePath = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
                     UserId = table.Column<string>(nullable: false),
+                    ViewCount = table.Column<int>(nullable: false),
                     StoreName = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     LastModifiedDate = table.Column<DateTime>(nullable: false)
@@ -48,12 +58,15 @@ namespace CollegeStorez.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     StoreId = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    FLags = table.Column<int>(nullable: false),
                     ProductName = table.Column<string>(nullable: false),
                     ImagePath = table.Column<string>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
@@ -61,9 +74,9 @@ namespace CollegeStorez.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Product_Storez_StoreId",
+                        name: "FK_Products_Storez_StoreId",
                         column: x => x.StoreId,
                         principalTable: "Storez",
                         principalColumn: "Id",
@@ -77,7 +90,13 @@ namespace CollegeStorez.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     StoreId = table.Column<int>(nullable: false),
-                    Views = table.Column<int>(nullable: false)
+                    Text = table.Column<string>(nullable: false),
+                    Notes = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
+                    Views = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -96,20 +115,24 @@ namespace CollegeStorez.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreateDate = table.Column<DateTime>(nullable: false),
-                    LastModifiedDate = table.Column<DateTime>(nullable: false),
-                    Type = table.Column<string>(nullable: false),
-                    ProductId = table.Column<int>(nullable: true)
+                    ProductId = table.Column<int>(nullable: false),
+                    Text = table.Column<string>(nullable: false),
+                    Value = table.Column<int>(nullable: false),
+                    Note = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Flags = table.Column<int>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    LastModifiedDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Product_ProductId",
+                        name: "FK_Orders_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Product",
+                        principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -118,8 +141,8 @@ namespace CollegeStorez.Data.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Product_StoreId",
-                table: "Product",
+                name: "IX_Products_StoreId",
+                table: "Products",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
@@ -142,7 +165,7 @@ namespace CollegeStorez.Data.Migrations
                 name: "Trending");
 
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Storez");

@@ -13,19 +13,27 @@
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/"]' (click)='collapse()'>
+                    <a [routerLink]='["/home"]' (click)='collapse()'>
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
                 </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
-                    </a>
+
+                <li [routerLinkActive]="['link-active']">
+                  <a [routerLink] ="['/about']">
+                    <span class="glyphicon glyphicon-info-sign" ></span> About
+                  </a>
                 </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
+
+                <li [routerLinkActive]="['link-active']">
+                  <a [routerLink] ="['/login']">
+                    <span class="glyphicon glyphicon-log-in"></span> Login
+                  </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
+                  <a [routerLink] ="['/store/create']">
+                    <span class="glyphicon glyphicon-log-in "></span> Create Store
+                  </a>
                 </li>
             </ul>
         </div>

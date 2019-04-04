@@ -74,6 +74,18 @@ namespace CollegeStorez
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            //Create a service scope to get an ApplicationDbContext instace using DI
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var dbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+
+                //create the db if it doesn't exist and apply any pending migration
+                dbContext.Database.Migrate();
+
+                //seed the database
+                DbSeeder.Seed(dbContext);
+            }
         }
     }
 }

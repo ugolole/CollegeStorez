@@ -1,0 +1,30 @@
+<h3>Order</h3>
+<div *ngIf="orders.length > 0">
+  <table class="orders">
+    <thead>
+      <tr>
+        <th>Text</th>
+        <th>Value</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{order.Text}}</td>
+        <td>{{order.Value}}</td>
+        <td>
+          <input type="button" value="Edit"
+                 (click)="onEdit(order)" />
+          <input type="button" value="Delete"
+                 (click)="onDelete(order)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="orders.length == 0">
+  This product has no orders (yet):
+  click the <strong>Add a new Order</strong> button to add the first
+  one!
+</div>
+<input type="button" value="Add a new Order" (click)="onCreate()" />

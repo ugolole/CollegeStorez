@@ -1,0 +1,25 @@
+<h2>{{title}}</h2>
+<div class="order-edit">
+  <div>
+    <label for="text">Order text:</label>
+    <br />
+<textarea id="text" [(ngModel)]="order.Text"
+          placeholder="enter a suitable text..."></textarea>
+  </div>
+  <div>
+    <label for="value">Value:</label>
+    <br />
+    <select id="value" name="value" [(ngModel)]="order.Value">
+      <option *ngFor="let num of [-5,-4,-3,-2,-1,0,1,2,3,4,5]"
+              [value]="num">
+        {{num}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <input *ngIf="editMode" type="button" value="Apply Changes"
+           (click)="onSubmit(order)" />
+    <input *ngIf="!editMode" type="button" value="Create the Answer!" (click)="onSubmit(order)" />
+    <input type="button" value="Cancel" (click)="onBack()" />
+  </div>
+</div>

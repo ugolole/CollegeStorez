@@ -1,0 +1,30 @@
+<h3>Trends</h3>
+<div *ngIf="trends.length > 0">
+  <table class="trends">
+    <thead>
+      <tr>
+        <th>Text</th>
+        <th>Views</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trend of trends">
+        <td>{{trend.Text}}</td>
+        <td *ngIf="trend.Views === null">N/A</td>
+        <td *ngIf="trend.MinValue !== null">{{trend.Views}}</td>
+        <td>
+          <input type="button" value="Edit"
+                 (click)="onEdit(trend)" />
+          <input type="button" value="Delete"
+                 (click)="onDelete(trend)" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="trends.length == 0">
+  This Store has no Trends (yet):
+  click the <strong>Add a new Trend</strong> button to add the first one!
+</div>
+<input type="button" value="Add a new Result" (click)="onCreate()" />

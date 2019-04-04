@@ -1,0 +1,20 @@
+
+store-list{
+  width: 30%;
+  display: block;
+  padding: 2px 20px;
+  margin: 0px 5px;
+  float: left;
+}
+
+store-list.latest{
+  background-color: #f0f0f0;
+}
+
+store-list.byTitle{
+  background-color: #c0c0c0;
+}
+
+store-list.random{
+  background-color: #d0d0d0;
+}

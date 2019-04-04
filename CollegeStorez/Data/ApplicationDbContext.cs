@@ -31,7 +31,7 @@ namespace CollegeStorez.Data
             modelBuilder.Entity<Store>().HasOne(i => i.User).WithMany(u => u.Stores);
             modelBuilder.Entity<Store>().HasMany(i => i.Products).WithOne(u => u.Store);
 
-            modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<Product>().ToTable("Products");
             modelBuilder.Entity<Product>().Property(i => i.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Product>().HasOne(i => i.Store).WithMany(u => u.Products);
             modelBuilder.Entity<Product>().HasMany(i => i.Order).WithOne(c => c.Product);
