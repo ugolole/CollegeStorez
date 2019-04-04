@@ -1,8 +1,18 @@
-<h2>{{title}}</h2>
-<ul class="stores">
-  <li *ngFor="let store of stores"
-      [class.selected] ="store === selectedStore"
-      (click) ="onSelect(store)">
-    <span>{{store.Title}}</span>
-  </li>
-</ul>
+
+<div class="panel panel-primary {{class}}">
+  <div class="panel-heading">
+    <span class="glyphicon"></span>
+    <h4>{{title}}</h4>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let store of stores"
+          [class.selected]="store === selectedStore"
+          (click)="onSelect(store)">
+        <img src="https://lorempixel.com/50/50/?random={{store.Id}}"
+             alt="{{store.Title}}" class="img-circle" />
+        <span>{{store.Title}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

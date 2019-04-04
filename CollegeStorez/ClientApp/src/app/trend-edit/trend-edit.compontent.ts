@@ -6,7 +6,7 @@ import { Trend } from "../interfaces/trend";
 @Component({
   selector: "trend-edit",
   templateUrl: './trend-edit.component.html',
-  styleUrls: ['./trend-edit.component.css']
+  styleUrls: ['./trend-edit.component.less']
 })
 
 export class TrendEditComponent {

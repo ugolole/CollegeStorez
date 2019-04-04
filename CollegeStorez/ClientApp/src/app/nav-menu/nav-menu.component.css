@@ -5,6 +5,12 @@
   right: 0;
   z-index: 1;
 }
+.main-nav .navbar {
+  background-color: #10395b;
+}
+.main-nav .textHover:hover {
+  color: #4fe1ff;
+}
 .main-nav li a {
   cursor: pointer;
 }
@@ -23,14 +29,10 @@
     width: calc(25% - 30px);
     min-width: 180px;
   }
-  .main-nav .textHover:hover {
-    color: #4fe1ff;
-  }
   .main-nav .navbar {
     border-radius: 0 15px 15px 0;
     border-width: 0px;
     height: 100%;
-    background-color: #10395b;
   }
   .main-nav .navbar a {
     width: 100%;

@@ -7,7 +7,7 @@ import { Store } from "../interfaces/store";
 @Component({
   selector: "product-list",
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.less']
 })
 
 export class ProductListComponent implements OnChanges {

@@ -1,18 +1,70 @@
-<div *ngIf="store" class="store">
-  <h2>{{store.Title}}</h2>
-  <ul>
-    <li>
-      <label>Title:</label>
-      <input [ngModel]="store.Title" placeholder="insert the Title ...."/>
-    </li>
+<div class="store">
+  <div class="store-details">
+    <div class="store-image">
+      <img src="https://lorempixel.com/150/150/?random={{store.Id}}"
+           alt="{{store.Title}}" class="img-circle">
+    </div>
+    <div class="store-info-block">
+      <div class="store-heading">
+        <h2>{{store.Title}}</h2>
+        <span class="help-block">{{store.Description}}</span>
+        <!--<span class="help-block">Created by User # on {{store.CreatedDate}}</span>-->
+      </div>
 
-    <li>
-      <label>Description</label>
-      <textarea [ngModel]="store.Description" placeholder="Insert a suitable description..."></textarea>
-    </li>
-  </ul>
-  <div>
-    <input type="button" value="Edit" (click)="onEdit()"/>
-    <input type="button" value="Delete this Store" (click)="onDelete()"/>
+      <ul class="navigation">
+        <li class="active">
+          <a data-toggle="tab" href="#description">
+            <span class="glyphicon glyphicon-user"></span>
+            &nbsp; Description
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#stats">
+            <span class="glyphicon glyphicon-stats"></span>
+            &nbsp; Stats
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#share">
+            <span class="glyphicon glyphicon-share-alt"></span>
+            &nbsp; Share
+          </a>
+        </li>
+      </ul>
+      <div class="store-body">
+        <div class="tab-content">
+          <div id="description" class="tab-pane active">
+            {{store.Text}}
+          </div>
+          <div id="stats" class="tab-pane">
+            TO-DO
+          </div>
+          <div id="share" class="tab-pane">
+            TO-DO
+          </div>
+        </div>
+      </div>
+
+      <div class="commands">
+        <a [routerLink]="['/store', store.Id, 'take']"
+           class="btn btn-success">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+          &nbsp; Products!
+        </a>
+        <a [routerLink]="['/home']"
+           class="btn btn-default">
+          <span class="glyphicon glyphicon-arrow-left"></span>
+          &nbsp; Back
+        </a>
+        <div class="edit">
+          <input type="button" value="Edit"
+                 (click)="onEdit()"
+                 class="btn btn-sm btn-warning" />
+          <input type="button" value="Delete"
+                 (click)="onDelete()"
+                 class="btn btn-sm btn-danger" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>

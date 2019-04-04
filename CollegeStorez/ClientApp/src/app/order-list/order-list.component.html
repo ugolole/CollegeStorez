@@ -1,4 +1,4 @@
-<h3>Order</h3>
+<!--<h3>Order</h3>
 <div *ngIf="orders.length > 0">
   <table class="orders">
     <thead>
@@ -27,4 +27,45 @@
   click the <strong>Add a new Order</strong> button to add the first
   one!
 </div>
-<input type="button" value="Add a new Order" (click)="onCreate()" />
+<input type="button" value="Add a new Order" (click)="onCreate()" />-->
+
+<h3>Orders</h3>
+<div *ngIf="orders.length > 0">
+  <div class="table-responsive">
+    <table class="table table-hover answers">
+      <thead>
+        <tr>
+          <th>Text</th>
+          <th>Value</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{order.Text}}</td>
+          <td>{{order.Value}}</td>
+          <td>
+            <button (click)="onEdit(order)"
+                    class="btn btn-xs btn-warning">
+              <span class="glyphicon glyphicon-edit"></span>
+              &nbsp; Edit
+            </button>
+            <button (click)="onDelete(order)"
+                    class="btn btn-xs btn-danger">
+              <span class="glyphicon glyphicon-remove"></span>
+              &nbsp; Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="orders.length == 0">
+  This Product has no orders (yet):
+  click the <strong>Add a new Order</strong> button to add the first one!
+</div>
+<button (click)="onCreate()" class="btn btn-sm btn-primary">
+  <span class="glyphicon glyphicon-plus"></span>
+  &nbsp; Add a new Order
+</button>

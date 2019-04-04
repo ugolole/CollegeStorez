@@ -1,28 +1,38 @@
 <h3>Products</h3>
 <div *ngIf="products.length > 0">
-  <table class="product">
-    <thead>
-      <tr>
-        <th>Text</th>
-        <th>Options</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{product.Text}}</td>
-        <td>
-          <input type="button" value="Edit"
-                 (click)="onEdit(product)" />
-          <input type="button" value="Delete"
-                 (click)="onDelete(product)" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-hover table-striped questions">
+      <thead>
+        <tr>
+          <th>Text</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.Text}}</td>
+          <td>
+            <button (click)="onEdit(product)"
+                    class="btn btn-xs btn-warning">
+              <span class="glyphicon glyphicon-edit"></span>
+              &nbsp; Edit
+            </button>
+            <button (click)="onDelete(product)"
+                    class="btn btn-xs btn-danger">
+              <span class="glyphicon glyphicon-remove"></span>
+              &nbsp; Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div *ngIf="products.length == 0">
-  This Store has no prodtucts (yet):
-  click the <strong>Add a new Product</strong> button to add the first
-  one!
+<div *ngIf="products.length == 0" class="help-block">
+  This Store has no products (yet):
+  click the <strong>Add a new Product</strong> button to add the first one!
 </div>
-<input type="button" value="Add a new Product" (click)="onCreate()" />
+<button (click)="onCreate()" class="btn btn-sm btn-primary">
+  <span class="glyphicon glyphicon-plus"></span>
+  &nbsp; Add a new Product
+</button>

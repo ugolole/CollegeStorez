@@ -7,7 +7,7 @@ import { Store } from '../interfaces/store';
 @Component({
   selector: "trend-list",
   templateUrl: './trend-list.component.html',
-  styleUrls: ['./trend-list.component.css']
+  styleUrls: ['./trend-list.component.less']
 })
 
 export class TrendListComponent implements OnChanges {

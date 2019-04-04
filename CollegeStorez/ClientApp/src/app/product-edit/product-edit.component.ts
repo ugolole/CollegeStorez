@@ -6,7 +6,7 @@ import { Product } from '../interfaces/product';
 @Component({
   selector: "product-edit",
   templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  styleUrls: ['./product-edit.component.less']
 })
 
 export class ProductEditComponent {

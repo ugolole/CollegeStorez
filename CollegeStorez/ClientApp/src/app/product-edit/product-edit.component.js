@@ -65,7 +65,7 @@ var ProductEditComponent = /** @class */ (function () {
         core_1.Component({
             selector: "product-edit",
             templateUrl: './product-edit.component.html',
-            styleUrls: ['./product-edit.component.css']
+            styleUrls: ['./product-edit.component.less']
         }),
         __param(3, core_1.Inject('BASE_URL'))
     ], ProductEditComponent);

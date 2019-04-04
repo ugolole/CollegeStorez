@@ -6,7 +6,7 @@ import { Store } from "../interfaces/store";
 @Component({
   selector: 'store',
   templateUrl: "./store.component.html",
-  styleUrls: ['./store.component.css']
+  styleUrls: ['./store.component.less']
 })
 
 export class StoreComponent {

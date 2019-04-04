@@ -1,30 +1,35 @@
 <h3>Trends</h3>
 <div *ngIf="trends.length > 0">
-  <table class="trends">
-    <thead>
-      <tr>
-        <th>Text</th>
-        <th>Views</th>
-        <th>Options</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let trend of trends">
-        <td>{{trend.Text}}</td>
-        <td *ngIf="trend.Views === null">N/A</td>
-        <td *ngIf="trend.MinValue !== null">{{trend.Views}}</td>
-        <td>
-          <input type="button" value="Edit"
-                 (click)="onEdit(trend)" />
-          <input type="button" value="Delete"
-                 (click)="onDelete(trend)" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-hover results">
+      <thead>
+        <tr>
+          <th>Text</th>
+          <th>Values</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trend of trends">
+          <td>{{trend.Text}}</td>
+          <td *ngIf="trend.Views === null">N/A</td>
+          <td *ngIf="trend.Views !== null">{{trend.Views}}</td>
+          <td>
+            <input type="button" value="Edit"
+                   (click)="onEdit(trend)" class="btn btn-sm btn-warning"/>
+            <input type="button" value="Delete"
+                   (click)="onDelete(trend)"  class="btn btn-sm btn-danger"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<div *ngIf="trends.length == 0">
-  This Store has no Trends (yet):
-  click the <strong>Add a new Trend</strong> button to add the first one!
+<div *ngIf="trends.length == 0" class="help-block">
+  This Store has no trends (yet):
+  click the <strong>Add a new Trends</strong> button to add the first one!
 </div>
-<input type="button" value="Add a new Result" (click)="onCreate()" />
+<button (click)="onCreate()" class="btn btn-sm btn-primary">
+  <span class="glyphicon glyphicon-plus"></span>
+  &nbsp; Add a new Trends
+</button>

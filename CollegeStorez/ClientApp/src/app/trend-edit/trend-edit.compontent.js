@@ -64,7 +64,7 @@ var TrendEditComponent = /** @class */ (function () {
         core_1.Component({
             selector: "trend-edit",
             templateUrl: './trend-edit.component.html',
-            styleUrls: ['./trend-edit.component.css']
+            styleUrls: ['./trend-edit.component.less']
         }),
         __param(3, core_1.Inject('BASE_URL'))
     ], TrendEditComponent);

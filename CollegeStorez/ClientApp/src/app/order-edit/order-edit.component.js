@@ -65,7 +65,7 @@ var OrderEditComponent = /** @class */ (function () {
         core_1.Component({
             selector: "order-edit",
             templateUrl: './order-edit.component.html',
-            styleUrls: ['./order-edit.component.css']
+            styleUrls: ['./order-edit.component.less']
         }),
         __param(3, core_1.Inject('BASE_URL'))
     ], OrderEditComponent);
