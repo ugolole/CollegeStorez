@@ -1,3 +1,14 @@
-.product-edit textarea{
-  min-width: 500px;
+.product-edit {
+  width: 80%;
+}
+@media (max-width: 767px) {
+  .product-edit {
+    width: 100%;
+  }
+}
+.product-edit textarea {
+  min-height: 100px;
+}
+.product-edit .commands {
+  margin-top: 20px;
 }

@@ -63,7 +63,7 @@ var ProductListComponent = /** @class */ (function () {
         core_1.Component({
             selector: "product-list",
             templateUrl: './product-list.component.html',
-            styleUrls: ['./product-list.component.css']
+            styleUrls: ['./product-list.component.less']
         }),
         __param(1, core_1.Inject('BASE_URL'))
     ], ProductListComponent);

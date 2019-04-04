@@ -61,7 +61,7 @@ var StoreComponent = /** @class */ (function () {
         core_1.Component({
             selector: 'store',
             templateUrl: "./store.component.html",
-            styleUrls: ['./store.component.css']
+            styleUrls: ['./store.component.less']
         }),
         __param(3, core_1.Inject('BASE_URL'))
     ], StoreComponent);

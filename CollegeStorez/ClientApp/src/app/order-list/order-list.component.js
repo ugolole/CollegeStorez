@@ -62,7 +62,7 @@ var OrderListComponent = /** @class */ (function () {
         core_1.Component({
             selector: "order-list",
             templateUrl: './order-list.component.html',
-            styleUrls: ['./order-list.component.css']
+            styleUrls: ['./order-list.component.less']
         }),
         __param(1, core_1.Inject('BASE_URL'))
     ], OrderListComponent);

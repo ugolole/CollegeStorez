@@ -6,7 +6,7 @@ import { Order } from '../interfaces/Order';
 @Component({
   selector: "order-edit",
   templateUrl: './order-edit.component.html',
-  styleUrls: ['./order-edit.component.css']
+  styleUrls: ['./order-edit.component.less']
 })
 
 export class OrderEditComponent {

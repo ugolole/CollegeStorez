@@ -61,7 +61,7 @@ var TrendListComponent = /** @class */ (function () {
         core_1.Component({
             selector: "trend-list",
             templateUrl: './trend-list.component.html',
-            styleUrls: ['./trend-list.component.css']
+            styleUrls: ['./trend-list.component.less']
         }),
         __param(1, core_1.Inject('BASE_URL'))
     ], TrendListComponent);

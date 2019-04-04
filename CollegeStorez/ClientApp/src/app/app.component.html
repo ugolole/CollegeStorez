@@ -1,10 +1,24 @@
 <div class='container-fluid'>
-  <div class='row'>
-    <div class='col-sm-3'>
-      <app-nav-menu></app-nav-menu>
+  <div class='container-fluid'>
+    <div class='row'>
+      <nav class="navbar header-content">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a [routerLink]="['/home']">
+              <img src="../assets/collegeStorez.svg"
+                   alt="CollegeStore" />
+            </a>
+          </div>
+          <store-search class="search-header" placeholder="Search for a Store..."></store-search>
+        </div>
+      </nav>
     </div>
-    <div class='col-sm-9 body-content'>
-      <router-outlet></router-outlet>
+    <div class='row'>
+      <div class='col-sm-3'>
+        <app-nav-menu></app-nav-menu>
+      </div>
+      <div class='col-sm-9 body-content'>
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
-</div>

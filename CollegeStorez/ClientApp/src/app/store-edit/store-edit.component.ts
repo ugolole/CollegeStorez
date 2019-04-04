@@ -7,7 +7,7 @@ import { Store } from "../interfaces/store";
 @Component({
   selector: "store-edit",
   templateUrl: "./store-edit.component.html",
-  styleUrls: ['./store-edit.component.css']
+  styleUrls: ['./store-edit.component.less']
 })
 
 export class StoreEditComponent {

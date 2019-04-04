@@ -1,3 +1,14 @@
-.trend-edit textarea {
-  min-width: 500px;
+trend-edit {
+  width: 80%;
+}
+@media (max-width: 767px) {
+  trend-edit {
+    width: 100%;
+  }
+}
+trend-edit textarea {
+  min-height: 100px;
+}
+trend-edit .commands {
+  margin-top: 20px;
 }

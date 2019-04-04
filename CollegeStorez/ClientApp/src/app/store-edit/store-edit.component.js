@@ -67,7 +67,7 @@ var StoreEditComponent = /** @class */ (function () {
         core_1.Component({
             selector: "store-edit",
             templateUrl: "./store-edit.component.html",
-            styleUrls: ['./store-edit.component.css']
+            styleUrls: ['./store-edit.component.less']
         }),
         __param(3, core_1.Inject('BASE_URL'))
     ], StoreEditComponent);
