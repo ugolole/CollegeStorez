@@ -29,4 +29,5 @@
     <input type="button" value="Cancel" (click)="onBack()" />
   </div>
   <product-list [store] ="store" *ngIf="editMode"></product-list>
+  <trend-list [store]="store" *ngIf="editMode"></trend-list>
 </div>

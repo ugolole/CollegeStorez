@@ -12,5 +12,5 @@
     <input *ngIf="!editMode" type="button" value="Create the Product!" (click)="onSubmit(product)" />
     <input type="button" value="Cancel" (click)="onBack()" />
   </div>
-  <order-list *ngIf="editMode" [product]="question"></order-list>
+  <order-list *ngIf="editMode" [product]="product"></order-list>
 </div>

@@ -43,11 +43,16 @@
     <None Remove="ClientApp\src\app\interfaces\store.ts" />
     <None Remove="ClientApp\src\app\interfaces\trend.ts" />
     <None Remove="ClientApp\src\app\login\login.component.ts" />
+    <None Remove="ClientApp\src\app\order-edit\order-edit.component.ts" />
+    <None Remove="ClientApp\src\app\order-list\order-list.component.ts" />
     <None Remove="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
+    <None Remove="ClientApp\src\app\product-edit\product-edit.component.ts" />
     <None Remove="ClientApp\src\app\product-list\product-list.component.ts" />
     <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
     <None Remove="ClientApp\src\app\store\store.component.ts" />
+    <None Remove="ClientApp\src\app\trend-edit\trend-edit.compontent.ts" />
+    <None Remove="ClientApp\src\app\trend-list\trend-list.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,11 +66,16 @@
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\store.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\trend.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\order-edit\order-edit.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\order-list\order-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\product-edit\product-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product-list\product-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\trend-edit\trend-edit.compontent.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\trend-list\trend-list.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

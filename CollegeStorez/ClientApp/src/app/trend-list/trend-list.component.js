@@ -10,16 +10,14 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ProductListComponent = /** @class */ (function () {
-    function ProductListComponent(http, baseUrl, router) {
+var TrendListComponent = /** @class */ (function () {
+    function TrendListComponent(http, baseUrl, router) {
         this.http = http;
         this.baseUrl = baseUrl;
         this.router = router;
-        this.products = [];
+        this.trends = [];
     }
-    //this is a life cycle hook that will trigger each time Angular sets a data-bound
-    //input propertie
-    ProductListComponent.prototype.ngOnChanges = function (changes) {
+    TrendListComponent.prototype.ngOnChanges = function (changes) {
         if (typeof changes['store'] !== "undefined") {
             // retrieve the store variable change info
             var change = changes['store'];
@@ -30,44 +28,44 @@ var ProductListComponent = /** @class */ (function () {
             }
         }
     };
-    ProductListComponent.prototype.loadData = function () {
+    TrendListComponent.prototype.loadData = function () {
         var _this = this;
-        var url = this.baseUrl + "api/product/All/" + this.store.Id;
-        this.http.get(url).subscribe(function (res) {
-            _this.products = res;
+        var url = this.baseUrl + "api/trend/All/" + this.store.Id;
+        this.http.get(url).subscribe(function (result) {
+            _this.trends = result;
         }, function (error) { return console.error(error); });
     };
-    ProductListComponent.prototype.onCreate = function () {
-        this.router.navigate(["/product/create", this.store.Id]);
+    TrendListComponent.prototype.onCreate = function () {
+        this.router.navigate(["/trend/create", this.store.Id]);
     };
-    ProductListComponent.prototype.onEdit = function (product) {
-        this.router.navigate(["/product/edit", product.Id]);
+    TrendListComponent.prototype.onEdit = function (trend) {
+        this.router.navigate(["/trend/edit", trend.Id]);
     };
-    ProductListComponent.prototype.onDelete = function (product) {
+    TrendListComponent.prototype.onDelete = function (trend) {
         var _this = this;
-        if (confirm("Do you really want to delete this question?")) {
-            var url = this.baseUrl + "api/product/" + product.Id;
+        if (confirm("Do you really want to delete this trend?")) {
+            var url = this.baseUrl + "api/trend/" + trend.Id;
             this.http
                 .delete(url)
                 .subscribe(function (res) {
-                console.log("Product " + product.Id + " has been deleted.");
-                // refresh the product list
+                console.log("Trend " + trend.Id + " has been deleted.");
+                // refresh the result list
                 _this.loadData();
             }, function (error) { return console.log(error); });
         }
     };
     __decorate([
         core_1.Input()
-    ], ProductListComponent.prototype, "store", void 0);
-    ProductListComponent = __decorate([
+    ], TrendListComponent.prototype, "store", void 0);
+    TrendListComponent = __decorate([
         core_1.Component({
-            selector: "product-list",
-            templateUrl: './product-list.component.html',
-            styleUrls: ['./product-list.component.css']
+            selector: "trend-list",
+            templateUrl: './trend-list.component.html',
+            styleUrls: ['./trend-list.component.css']
         }),
         __param(1, core_1.Inject('BASE_URL'))
-    ], ProductListComponent);
-    return ProductListComponent;
+    ], TrendListComponent);
+    return TrendListComponent;
 }());
-exports.ProductListComponent = ProductListComponent;
-//# sourceMappingURL=product-list.component.js.map
+exports.TrendListComponent = TrendListComponent;
+//# sourceMappingURL=trend-list.component.js.map

@@ -1,8 +1,9 @@
 import { Component, Inject, Input, OnChanges, SimpleChanges } from "@angular/core";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
-import { Order } from '../interfaces/order';
 import { Product } from "../interfaces/product";
+import { Order } from '../interfaces/order';
+
 
 @Component({
   selector: "order-list",
@@ -35,6 +36,7 @@ export class OrderListComponent implements OnChanges {
 
   loadData() {
     var url = this.baseUrl + "api/order/All/" + this.product.Id;
+
     this.http.get<Order[]>(url).subscribe(res => {
       this.orders = res;
     }, error => console.error(error));

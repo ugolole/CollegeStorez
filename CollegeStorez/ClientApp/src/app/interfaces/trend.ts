@@ -1,6 +1,6 @@
 export interface Trend {
   Id: number;
-  QuizId: number;
+  StoreId: number;
   Text: string;
   Views: number;
 }

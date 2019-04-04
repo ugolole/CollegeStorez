@@ -53,7 +53,7 @@ export class ProductListComponent implements OnChanges {
 
   onDelete(product: Product) {
     if (confirm("Do you really want to delete this question?")) {
-      var url = this.baseUrl + "api/question/" + product.Id;
+      var url = this.baseUrl + "api/product/" + product.Id;
       this.http
         .delete(url)
         .subscribe(res => {

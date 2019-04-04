@@ -10,66 +10,65 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ProductEditComponent = /** @class */ (function () {
-    function ProductEditComponent(activatedRoute, router, http, baseUrl) {
+var TrendEditComponent = /** @class */ (function () {
+    function TrendEditComponent(activatedRoute, router, http, baseUrl) {
         var _this = this;
         this.activatedRoute = activatedRoute;
         this.router = router;
         this.http = http;
         this.baseUrl = baseUrl;
-        // create an empty object from the Product  interface
-        this.product = {};
-        //get the id using short hand technique
+        // create an empty object from the Quiz interface
+        this.trend = {};
         var id = +this.activatedRoute.snapshot.params["id"];
-        // check if we're in edit mode or not
-        this.editMode = (this.activatedRoute.snapshot.url[1].path === "edit");
+        // quick & dirty way to check if we're in edit mode or not
+        this.editMode = (this.activatedRoute.snapshot.url[1].path == "edit");
         if (this.editMode) {
-            // fetch the store from the server
-            var url = this.baseUrl + "api/product/" + id;
+            // fetch the trend from the server
+            var url = this.baseUrl + "api/trend/" + id;
             this.http.get(url).subscribe(function (res) {
-                _this.product = res;
-                _this.title = "Edit - " + _this.product.Text;
+                _this.trend = res;
+                _this.title = "Edit - " + _this.trend.Text;
             }, function (error) { return console.error(error); });
         }
         else {
-            this.product.StoreId = id;
-            this.title = "Create a new Prodcut";
+            this.trend.StoreId = id;
+            this.title = "Create a new Trend";
         }
     }
-    ProductEditComponent.prototype.onSubmit = function (product) {
+    TrendEditComponent.prototype.onSubmit = function (trend) {
         var _this = this;
-        var url = this.baseUrl + "api/product";
+        var url = this.baseUrl + "api/trend";
         if (this.editMode) {
             this.http
-                .post(url, product)
+                .post(url, trend)
                 .subscribe(function (res) {
                 var v = res;
-                console.log("Product " + v.Id + " has been updated.");
+                console.log("Trend " + v.Id + " has been updated.");
                 _this.router.navigate(["store/edit", v.StoreId]);
             }, function (error) { return console.log(error); });
         }
         else {
             this.http
-                .put(url, product)
+                .put(url, trend)
                 .subscribe(function (res) {
                 var v = res;
-                console.log("Product " + v.Id + " has been created.");
+                console.log("Result " + v.Id + " has been created.");
                 _this.router.navigate(["store/edit", v.StoreId]);
             }, function (error) { return console.log(error); });
         }
     };
-    ProductEditComponent.prototype.onBack = function () {
-        this.router.navigate(["store/edit", this.product.StoreId]);
+    TrendEditComponent.prototype.onBack = function () {
+        this.router.navigate(["store/edit", this.trend.StoreId]);
     };
-    ProductEditComponent = __decorate([
+    TrendEditComponent = __decorate([
         core_1.Component({
-            selector: "product-edit",
-            templateUrl: './product-edit.component.html',
-            styleUrls: ['./product-edit.component.css']
+            selector: "trend-edit",
+            templateUrl: './trend-edit.component.html',
+            styleUrls: ['./trend-edit.component.css']
         }),
         __param(3, core_1.Inject('BASE_URL'))
-    ], ProductEditComponent);
-    return ProductEditComponent;
+    ], TrendEditComponent);
+    return TrendEditComponent;
 }());
-exports.ProductEditComponent = ProductEditComponent;
-//# sourceMappingURL=product-edit.component.js.map
+exports.TrendEditComponent = TrendEditComponent;
+//# sourceMappingURL=trend-edit.compontent.js.map

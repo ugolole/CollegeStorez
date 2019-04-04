@@ -15,6 +15,10 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { TrendListComponent } from './trend-list/trend-list.component';
+import { TrendEditComponent } from './trend-edit/trend-edit.compontent';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     LoginComponent,
     PageNotFoundComponent,
     ProductListComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    OrderEditComponent,
+    OrderListComponent,
+    TrendListComponent,
+    TrendEditComponent
     
   ],
   imports: [
@@ -46,6 +54,10 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
       { path: 'product/create/:id', component: ProductEditComponent },
       //you need to know the store before you edit a product hence the id
       { path: 'product/edit/:id', component: ProductEditComponent },
+      { path: 'order/create/:id', component: OrderEditComponent },
+      { path: 'order/edit/:id', component: OrderEditComponent },
+      { path: 'trend/create/:id', component: TrendEditComponent },
+      { path: 'trend/edit/:id', component: TrendEditComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
       { path: "**", component: PageNotFoundComponent }
