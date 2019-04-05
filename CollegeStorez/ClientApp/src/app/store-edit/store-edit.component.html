@@ -1,52 +1,82 @@
 <div class="store-edit">
   <h2>{{title}}</h2>
-  <div class="form-group">
-    <label for="title">Store title:</label>
-    <br />
-    <input type="text" id="title"
-           [(ngModel)]="store.Title"
-           placeholder="choose a title..."
-           class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="name">Store Name: </label>
-    <br />
-    <input type="text" id="name" [(ngModel)]="store.StoreName"
-           placeholder="choose a Name for Store..." class="form-control"/>
-  </div>
-  <div class="form-group">
-    <label for="description">Store description:</label>
-    <br />
-    <input type="text" id="description"
-           [(ngModel)]="store.Description"
-           placeholder="enter a description..."
-           class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="text">Store informative text:</label>
-    <br />
-    <textarea id="text"
-              [(ngModel)]="store.Text"
-              placeholder="enter a text..."
-              class="form-control"></textarea>
-  </div>
-  <div class="form-group commands">
-    <input *ngIf="editMode" type="button"
-           value="Apply Changes"
-           (click)="onSubmit(store)"
-           class="btn btn-success" />
-    <input *ngIf="!editMode" type="button"
-           value="Create the Store!"
-           (click)="onSubmit(store)"
-           class="btn btn-success" />
-    <input type="button"
-           value="Cancel"
-           (click)="onBack()"
-           class="btn btn-default" />
-  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-  <product-list *ngIf="editMode" [store]="store"></product-list>
+    <div class="form-group"
+         [ngClass] ="{'has-error has-feedback': hasError('Title') }">
+      <label for="title">Store title:</label>
+      <br />
+      <input type="text" id="title"
+             formControlName="Title" required
+             [(ngModel)]="store.Title"
+             placeholder="choose a title..."
+             class="form-control" />
 
-  <trend-list *ngIf="editMode" [store]="store"></trend-list>
+      <span *ngIf="hasError('Title')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
 
+      <div *ngIf="hasError('Title')" class="help-block">
+        Title is a required : please fill it
+      </div>
+    </div>
+
+
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback': hasError('StoreName')}">
+      <label for="name">Store Name: </label>
+      <br />
+      <input type="text" id="name"
+             formControlName="StoreName" required
+             [(ngModel)]="store.StoreName"
+             placeholder="choose a Name for Store..."
+             class="form-control" />
+      <span *ngIf="hasError('StoreName')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback" ></span>
+
+      <div *ngIf="hasError('StoreName')" class="help-block">
+        Store Name is required : please fill it
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Store description:</label>
+      <br />
+      <input type="text" id="description"
+             formControlName ="Description"
+             [(ngModel)]="store.Description"
+             placeholder="enter a description..."
+             class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="text">Store informative text:</label>
+      <br />
+      <textarea id="text"
+                formControlName="Text"
+                [(ngModel)]="store.Text"
+                placeholder="enter a text..."
+                class="form-control"></textarea>
+    </div>
+    <div class="form-group commands">
+      <button *ngIf="editMode" type="submit" [disabled]="form.invalid"
+              class="btn btn-success">
+        Apply Changes
+      </button>
+      <button *ngIf="!editMode" type="button" [disabled]="form.invalid"
+              class="btn btn-success">
+        Create the Store!
+      </button>
+
+      <button type="button"
+              (click)="onBack()"
+              class="btn btn-default">
+        Cancel
+      </button>
+    </div>
+
+    <product-list *ngIf="editMode" [store]="store"></product-list>
+
+    <trend-list *ngIf="editMode" [store]="store"></trend-list>
+  </form>
 </div>
+

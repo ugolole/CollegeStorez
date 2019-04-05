@@ -55,6 +55,7 @@ namespace CollegeStorez.Controllers
             // map the ViewModel to the Model
             var trend = model.Adapt<Trend>();
             //override properties that should be set in the client side
+            //the fields shown below are required.
             trend.StoreId = model.StoreId;
             trend.Text = model.Text;
             trend.Notes = model.Notes;
