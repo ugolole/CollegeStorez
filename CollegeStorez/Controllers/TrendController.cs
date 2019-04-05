@@ -54,6 +54,11 @@ namespace CollegeStorez.Controllers
 
             // map the ViewModel to the Model
             var trend = model.Adapt<Trend>();
+            //override properties that should be set in the client side
+            trend.StoreId = model.StoreId;
+            trend.Text = model.Text;
+            trend.Notes = model.Notes;
+            trend.Views = model.Views;
 
             // override those properties
             // that should be set from the server-side only
@@ -96,9 +101,8 @@ namespace CollegeStorez.Controllers
             // we want to accept from the request
             trend.StoreId = model.StoreId;
             trend.Text = model.Text;
-            //trend.MinValue = model.MinValue;
-            //result.MaxValue = model.MaxValue;
             trend.Notes = model.Notes;
+            trend.Views = model.Views;
 
             // properties set from server-side
             trend.LastModifiedDate = trend.CreatedDate;

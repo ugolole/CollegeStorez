@@ -79,7 +79,7 @@ namespace CollegeStorez.Controllers
         }
 
         /// <summary>
-        /// Edit the Product with given {id}
+        /// Edit the Product with given {id} this allows you to update the product
         /// </summary>
         /// <param name="model">The product view model</param>
         /// <returns></returns>

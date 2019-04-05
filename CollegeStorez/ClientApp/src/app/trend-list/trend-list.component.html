@@ -5,7 +5,8 @@
       <thead>
         <tr>
           <th>Text</th>
-          <th>Values</th>
+          <th>Views</th>
+          <th>Notes</th>
           <th>Options</th>
         </tr>
       </thead>
@@ -14,6 +15,8 @@
           <td>{{trend.Text}}</td>
           <td *ngIf="trend.Views === null">N/A</td>
           <td *ngIf="trend.Views !== null">{{trend.Views}}</td>
+          <td *ngIf="trend.Notes === null">N/A</td>
+          <td *ngIf="trend.Notes !== null">{{trend.Notes}}</td>
           <td>
             <input type="button" value="Edit"
                    (click)="onEdit(trend)" class="btn btn-sm btn-warning"/>

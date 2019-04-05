@@ -3,4 +3,5 @@ export interface Trend {
   StoreId: number;
   Text: string;
   Views: number;
+  Notes: string;
 }

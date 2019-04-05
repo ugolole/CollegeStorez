@@ -3,4 +3,5 @@ export interface Order {
   ProductId: number;
   Text: string;
   Value: number;
+  Note: string;
 }

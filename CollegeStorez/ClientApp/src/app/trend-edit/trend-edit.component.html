@@ -3,21 +3,28 @@
   <div class="form-group">
     <label for="text">Trend text:</label>
     <br />
-    <textarea id="text" [(ngModel)]="trend.Text" placeholder="enter a suitable text..."></textarea>
+    <textarea id="text" [(ngModel)]="trend.Text" placeholder="enter a suitable text..."
+              class="form-control"></textarea>
   </div>
 
   <div class="form-group">
     <label for="Views">Views Expected for trend:</label>
     <br />
     <input type="number" id="Views" name="Views"
-           [(ngModel)]="trend.Views" />
+           [(ngModel)]="trend.Views" class="form-control"/>
+  </div>
+
+  <div class="form-group">
+    <label for="text">Trend Notes:</label>
+    <br />
+    <textarea id="text" [(ngModel)]="trend.Notes" placeholder="enter a suitable Note..." class="form-control"></textarea>
   </div>
 
 
   <div class="commands">
     <input *ngIf="editMode" type="button" value="Apply Changes" (click)="onSubmit(trend)"
            class="btn btn-success" />
-    <input *ngIf="!editMode" type="button"  value="Create the Trend!"
+    <input *ngIf="!editMode" type="button" value="Create the Trend!"
            (click)="onSubmit(trend)"
            class="btn btn-success" />
     <input type="button" value="Cancel" (click)="onBack()"
