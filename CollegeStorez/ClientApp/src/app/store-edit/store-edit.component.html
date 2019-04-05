@@ -26,6 +26,7 @@
          [ngClass]="{'has-error has-feedback': hasError('StoreName')}">
       <label for="name">Store Name: </label>
       <br />
+
       <input type="text" id="name"
              formControlName="StoreName" required
              [(ngModel)]="store.StoreName"
