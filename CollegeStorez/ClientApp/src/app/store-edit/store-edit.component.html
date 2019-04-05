@@ -63,14 +63,13 @@
               class="btn btn-success">
         Apply Changes
       </button>
-      <button *ngIf="!editMode" type="button" [disabled]="form.invalid"
+      <button *ngIf="!editMode" type="submit" [disabled]="form.invalid"
               class="btn btn-success">
         Create the Store!
       </button>
 
       <button type="button"
-              (click)="onBack()"
-              class="btn btn-default">
+              (click)="onBack()" class="btn btn-default">
         Cancel
       </button>
     </div>
