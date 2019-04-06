@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Order } from '../interfaces/Order';
 
+import { FormGroup, FormControl, FormBuilder, Validators } from "@angular/forms";
+
+
 @Component({
   selector: "order-edit",
   templateUrl: './order-edit.component.html',
@@ -12,6 +15,7 @@ import { Order } from '../interfaces/Order';
 export class OrderEditComponent {
   title: string;
   order: Order;
+  form: FormGroup;
 
   // this will be TRUE when editing an existing product,
   // FALSE when creating a new one.
@@ -20,6 +24,7 @@ export class OrderEditComponent {
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
+
     @Inject('BASE_URL') private baseUrl: string) {
 
     // create an empty object from the Order  interface

@@ -56,7 +56,7 @@ namespace CollegeStorez.Controllers
             var trend = model.Adapt<Trend>();
             //override properties that should be set in the client side
             //the fields shown below are required.
-            trend.StoreId = model.StoreId;
+            //trend.StoreId = model.StoreId;
             trend.Text = model.Text;
             trend.Notes = model.Notes;
             trend.Views = model.Views;

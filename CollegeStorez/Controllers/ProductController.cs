@@ -59,7 +59,6 @@ namespace CollegeStorez.Controllers
 
             //override those properties
             //that should be set from the server only
-            product.StoreId = model.StoreId;
             product.Text = model.Text;
             product.Notes = model.Notes;
             product.ProductName = model.ProductName;

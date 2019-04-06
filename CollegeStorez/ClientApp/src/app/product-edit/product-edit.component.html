@@ -1,34 +1,74 @@
 <h2>{{title}}</h2>
 <div class="product-edit">
-  <div class="form-group">
-    <label for="text">Product text:</label>
-    <br />
-    <textarea id="text"
-              [(ngModel)]="product.Text"
-              placeholder="enter a suitable text..."
-              class="form-control"></textarea>
-  </div>
-  <div class="form-group">
-    <label class="text">Product Name</label>
-    <br/>
-    <input type="text" id="name" [(ngModel)]="product.ProductName"
-           placeholder="choose a Name for Product..." class="form-control"/>
-  </div>
-  <div class="form-group">
-    <label class="text">Product Image Path</label>
-    <br/>
-    <input type="text" id="name" [(ngModel)]="product.ImagePath"
-           placeholder="choose an Image for Product..." class="form-control"/>
-  </div>
-  <div class="commands">
-    <input *ngIf="editMode" type="button" value="Apply Changes" (click)="onSubmit(product)"
-           class="btn btn-success" />
-    <input *ngIf="!editMode" type="button" value="Create the Product!" (click)="onSubmit(product)"
-           class="btn btn-success" />
-    <input type="button" value="Cancel" (click)="onBack()"
-           class="btn btn-default" />
-  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-  <order-list *ngIf="editMode" [product]="product"></order-list>
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback':hasError('Text')}">
+      <label for="text">Product text:</label>
+      <br />
 
+      <textarea id="text"
+                [(ngModel)]="product.Text"
+                formControlName ="Text" required
+                placeholder="enter a suitable text..."
+                class="form-control"></textarea>
+
+      <span *ngIf="hasError('Text')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback" ></span>
+      <div *ngIf="hasError('Text')"
+           class="help-block">Text is requrid : please fill it!</div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback' : hasError('ProductName')}">
+      <label class="text">Product Name</label>
+      <br />
+      <input type="text" id="name"
+             [(ngModel)]="product.ProductName"
+             formControlName ="ProductName" required
+             placeholder="choose a Name for Product..."
+             class="form-control" />
+      <span *ngIf="hasError('ProductName')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <div *ngIf="hasError('ProductName')"
+           class="help-block">Product Name is required: please fill it</div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback': hasError('ImagePath')}">
+      <label class="text">Product Image Path</label>
+      <br />
+      <input type="text" id="name"
+             [(ngModel)]="product.ImagePath"
+             formControlName ="ImagePath" required
+             placeholder="choose an Image for Product..."
+             class="form-control" />
+      <span *ngIf="hasError('ImagePath')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <div *ngIf="hasError('ImagePath')"
+           class="help-block">Image path is required : please fill it</div>
+    </div>
+
+    <div class="commands">
+      <button *ngIf="editMode" type="submit" [disabled]="form.invalid"
+              class="btn btn-success">
+        Apply Changes
+      </button>
+
+      <button *ngIf="!editMode" type="submit" [disabled]="form.invalid"
+             class="btn btn-success" >
+        Create the Product
+      </button>
+
+      <button type="button"  (click)="onBack()"
+             class="btn btn-default">
+        Cancel
+      </button>
+    </div>
+
+    <order-list *ngIf="editMode" [product]="product"></order-list>
+  </form>
 </div>
