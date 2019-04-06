@@ -24,11 +24,14 @@ export class OrderEditComponent {
   constructor(private activatedRoute: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
-
-    @Inject('BASE_URL') private baseUrl: string) {
+    private fb: FormBuilder,
+    @Inject('BASE_URL') private baseUrl: string) { //this make the baseUrl available through dependency injection.
 
     // create an empty object from the Order  interface
     this.order = <Order>{};
+
+    //initialise the form
+    this.createForm();
 
     //get the id using short hand technique
     var id = +this.activatedRoute.snapshot.params["id"];
@@ -50,11 +53,25 @@ export class OrderEditComponent {
     }
   }
 
-  onSubmit(order: Order) {
+  onSubmit() {
+    //create a temporary variable used to store the order
+    var tempOrder = <Order>{};
+
+    //assign the values found inside the form into the temporary order interface
+    tempOrder.ProductId = this.order.ProductId;
+
+    tempOrder.Text = this.form.value.Text;
+    tempOrder.Value = this.form.value.Value;
+    tempOrder.Note = this.form.value.Note;
+
     var url = this.baseUrl + "api/order";
     if (this.editMode) {
+
+      //to prevent editing error assign the tempOrder id to order id
+      tempOrder.Id = this.order.Id;
+
       this.http
-        .post<Order>(url, order)
+        .post<Order>(url, tempOrder)
         .subscribe(res => {
           var v = res;
           console.log("Order " + v.Id + " has been updated.");
@@ -63,13 +80,55 @@ export class OrderEditComponent {
     }
     else {
       this.http
-        .put<Order>(url, order)
+        .put<Order>(url, tempOrder)
         .subscribe(res => {
           var v = res;
           console.log("Order " + v.Id + " has been created.");
           this.router.navigate(["product/edit", v.ProductId]);
         }, error => console.log(error));
     }
+  }
+
+  //Method used to create the form
+  createForm() {
+    this.form = this.fb.group({
+      Text: ['', Validators.required],
+      Value: ['', Validators.required],
+      Note : ''
+    });
+  }
+
+  //merge newly created form with data found in the interface
+  updateForm() {
+    this.form.setValue({
+      Text: this.order.Text,
+      Value: this.order.Value,
+      Note: this.order.Note
+    });
+  }
+
+  //helper methods that will be used to validate the form we have created
+  //get the form control
+  getFormControl(name: string) {
+    return this.form.get(name);
+  }
+
+  //return true if the form is valid
+  isValid(name: string) {
+    var e = this.getFormControl(name);
+    return e && e.valid;
+  }
+
+  //return true if form control has changed
+  isChanged(name: string) {
+    var e = this.getFormControl(name);
+    return e && (e.dirty || e.touched);
+  }
+
+  //return true if the form is valid after user changes
+  hasError(name: string) {
+    var e = this.getFormControl(name);
+    return e && (e.dirty || e.touched) && !e.valid;
   }
 
   onBack() {

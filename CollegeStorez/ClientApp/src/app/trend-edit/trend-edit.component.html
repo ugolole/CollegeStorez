@@ -1,34 +1,62 @@
 <h2>{{title}}</h2>
 <div class="trend-edit">
-  <div class="form-group">
-    <label for="text">Trend text:</label>
-    <br />
-    <textarea id="text" [(ngModel)]="trend.Text" placeholder="enter a suitable text..."
-              class="form-control"></textarea>
-  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-  <div class="form-group">
-    <label for="Views">Views Expected for trend:</label>
-    <br />
-    <input type="number" id="Views" name="Views"
-           [(ngModel)]="trend.Views" class="form-control"/>
-  </div>
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback': hasError('Text')}">
+      <label for="text">Trend text:</label>
+      <br />
+      <textarea id="text" [(ngModel)]="trend.Text"
+                formControlName ="Text"
+                placeholder="enter a suitable text..."
+                class="form-control"></textarea>
+      <span *ngIf="hasError('Text')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <div *ngIf="hasError('Text')"
+           class="help-block">Please fill in the text</div>
+    </div>
 
-  <div class="form-group">
-    <label for="text">Trend Notes:</label>
-    <br />
-    <textarea id="text" [(ngModel)]="trend.Notes" placeholder="enter a suitable Note..." class="form-control"></textarea>
-  </div>
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback': hasError('Views')}">
+      <label for="Views">Views Expected for trend:</label>
+      <br />
+      <input type="number" id="Views" name="Views"
+             [(ngModel)]="trend.Views"
+             formControlName ="Views"
+             class="form-control" />
+      <span *ngIf="hasError('Views')"
+            class="glyphicon glyphicon-remove form-control-feedback"
+            aria-hidden="true"></span>
+      <div *ngIf="hasError('Views')"
+           class="help-block">The views needs to  be specified</div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback': hasError('Notes')}">
+      <label for="text">Trend Notes:</label>
+      <br />
+      <textarea id="text" [(ngModel)]="trend.Notes"
+                formControlName ="Notes"
+                placeholder="enter a suitable Note..."
+                class="form-control"></textarea>
+      <span *ngIf="hasError('Notes')"
+            class="glyphicon glyphicon-remove form-control-feedback"
+            aria-hidden="true"></span>
+      <div *ngIf="hasError('Notes')"
+           class="help-block">The Notes needs to be specified</div>
+    </div>
 
 
-  <div class="commands">
-    <input *ngIf="editMode" type="button" value="Apply Changes" (click)="onSubmit(trend)"
-           class="btn btn-success" />
-    <input *ngIf="!editMode" type="button" value="Create the Trend!"
-           (click)="onSubmit(trend)"
-           class="btn btn-success" />
-    <input type="button" value="Cancel" (click)="onBack()"
-           class="btn btn-default" />
-  </div>
+    <div class="commands">
+      <button *ngIf="editMode" type="submit"  [disabled]="form.invalid"
+             class="btn btn-success" >Apply Changes</button>
 
+      <button *ngIf="!editMode" type="submit" [disabled]="form.invalid"
+             class="btn btn-success" >Create the Trend</button>
+
+      <input type="button" value="Cancel" (click)="onBack()"
+             class="btn btn-default" />
+    </div>
+  </form>
 </div>
