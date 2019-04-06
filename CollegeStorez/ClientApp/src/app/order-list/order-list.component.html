@@ -1,34 +1,3 @@
-<!--<h3>Order</h3>
-<div *ngIf="orders.length > 0">
-  <table class="orders">
-    <thead>
-      <tr>
-        <th>Text</th>
-        <th>Value</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let order of orders">
-        <td>{{order.Text}}</td>
-        <td>{{order.Value}}</td>
-        <td>
-          <input type="button" value="Edit"
-                 (click)="onEdit(order)" />
-          <input type="button" value="Delete"
-                 (click)="onDelete(order)" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div *ngIf="orders.length == 0">
-  This product has no orders (yet):
-  click the <strong>Add a new Order</strong> button to add the first
-  one!
-</div>
-<input type="button" value="Add a new Order" (click)="onCreate()" />-->
-
 <h3>Orders</h3>
 <div *ngIf="orders.length > 0">
   <div class="table-responsive">
@@ -37,16 +6,19 @@
         <tr>
           <th>Text</th>
           <th>Value</th>
-          <th></th>
+          <th>Note</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let order of orders">
-          <td>{{order.Text}}</td>
-          <td>{{order.Value}}</td>
+          <td *ngIf="order.Text === null">N/A</td>
+          <td *ngIf="order.Text !== null">{{order.Text}}</td>
+          <td *ngIf="order.value ===null">N/A</td>
+          <td *ngIf="order.Value !== null">{{order.Value}}</td>
+          <td *ngIf="order.Note === null">N/A</td>
+          <td *ngIf="order.Note !== null">{{order.Note}}</td>
           <td>
-            <button (click)="onEdit(order)"
-                    class="btn btn-xs btn-warning">
+            <button (click)="onEdit(order)" class="btn btn-xs btn-warning">
               <span class="glyphicon glyphicon-edit"></span>
               &nbsp; Edit
             </button>

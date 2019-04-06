@@ -10,15 +10,19 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var forms_1 = require("@angular/forms");
 var StoreEditComponent = /** @class */ (function () {
-    function StoreEditComponent(activeRoute, router, http, baseUrl) {
+    function StoreEditComponent(activeRoute, router, http, baseUrl, fb) {
         var _this = this;
         this.activeRoute = activeRoute;
         this.router = router;
         this.http = http;
         this.baseUrl = baseUrl;
+        this.fb = fb;
         //create an empty store from the store interface
         this.store = {};
+        //initialize the form
+        this.createForm();
         //acquire the id for that instance using a short hand technique
         var id = +this.activeRoute.snapshot.params["id"];
         if (id) {
@@ -29,6 +33,8 @@ var StoreEditComponent = /** @class */ (function () {
             this.http.get(url).subscribe(function (result) {
                 _this.store = result;
                 _this.title = "Edit - " + _this.store.Title;
+                //update the form with store value
+                _this.updateForm();
             }, function (error) { return console.error(error); });
         }
         else {
@@ -36,14 +42,22 @@ var StoreEditComponent = /** @class */ (function () {
             this.title = "Create a new Store";
         }
     }
-    StoreEditComponent.prototype.onSubmit = function (store) {
+    StoreEditComponent.prototype.onSubmit = function () {
         var _this = this;
+        //build a temporary object from form values
+        var tempStore = {};
+        tempStore.Title = this.form.value.Title;
+        tempStore.Description = this.form.value.Description;
+        tempStore.StoreName = this.form.value.StoreName;
+        tempStore.Text = this.form.value.Text;
         var url = this.baseUrl + 'api/store';
         //With Edit mode binding is used to acquire the values allowing you to edit them
         //with easy.
         if (this.editMode) { //For editing the Store
+            //we need to ensure that we are setting the tempStore ID of failure will occure
+            tempStore.Id = this.store.Id;
             this.http
-                .post(url, store)
+                .post(url, tempStore)
                 .subscribe(function (result) {
                 var v = result;
                 console.log("Store " + v.Id + " has been updated");
@@ -52,13 +66,50 @@ var StoreEditComponent = /** @class */ (function () {
         }
         else { //For creating the Store 
             this.http
-                .put(url, store)
+                .put(url, tempStore)
                 .subscribe(function (result) {
                 var s = result;
                 console.log("Store " + s.Id + " has been created");
                 _this.router.navigate(["home"]);
             }, function (error) { return console.log(error); });
         }
+    };
+    StoreEditComponent.prototype.createForm = function () {
+        this.form = this.fb.group({
+            Title: ['', forms_1.Validators.required],
+            Description: '',
+            Text: '',
+            StoreName: ['', forms_1.Validators.required]
+        });
+    };
+    StoreEditComponent.prototype.updateForm = function () {
+        this.form.setValue({
+            Title: this.store.Title,
+            Description: this.store.Description,
+            Text: this.store.Text,
+            StoreName: this.store.StoreName
+        });
+    };
+    //the helper methods that will allow us to easy the validation
+    //process
+    //retrieve a form control
+    StoreEditComponent.prototype.getFormControl = function (name) {
+        return this.form.get(name);
+    };
+    //return true if a form control is valid
+    StoreEditComponent.prototype.isValid = function (name) {
+        var e = this.getFormControl(name);
+        return e && e.valid;
+    };
+    //return TRUE if the formControl has been changed
+    StoreEditComponent.prototype.isChanged = function (name) {
+        var e = this.getFormControl(name);
+        return e && (e.dirty || e.touched);
+    };
+    //return true if the form control is invalid after user changes
+    StoreEditComponent.prototype.hasError = function (name) {
+        var e = this.getFormControl(name);
+        return e && (e.dirty || e.touched) && !e.valid;
     };
     StoreEditComponent.prototype.onBack = function () {
         this.router.navigate(['home']);

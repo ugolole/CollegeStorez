@@ -5,12 +5,16 @@
       <thead>
         <tr>
           <th>Text</th>
+          <th>Name</th>
+          <th>Image</th>
           <th>Options</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of products">
           <td>{{product.Text}}</td>
+          <td>{{product.ProductName}}</td>
+          <td>{{product.ImagePath}}</td>
           <td>
             <button (click)="onEdit(product)"
                     class="btn btn-xs btn-warning">

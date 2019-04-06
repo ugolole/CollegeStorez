@@ -1,35 +1,69 @@
 <h2>{{title}}</h2>
 <div class="order-edit">
-  <div class="form-group">
-    <label for="text">Order text:</label>
-    <br />
-    <textarea id="text"
-              [(ngModel)]="order.Text"
-              placeholder="enter a suitable text..."
-              class="form-control"></textarea>
-  </div>
+  <form [formGroup] ="form" (ngSubmit)="onSubmit()">
 
-  <div>
-    <label for="value">Value:</label>
-    <br />
-    <select id="value" name="value"
-            [(ngModel)]="order.Value"
-            class="form-control">
-      <option *ngFor="let num of [-5,-4,-3,-2,-1,0,1,2,3,4,5]" [value]="num">{{num}}</option>
-    </select>
-  </div>
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback' : hasError('Text')}">
+      <label for="text">Order text:</label>
+      <br />
+      <textarea id="text"
+                [(ngModel)]="order.Text"
+                formControlName ="Text"
+                placeholder="enter a suitable text..."
+                class="form-control"></textarea>
+      <span *ngIf="hasError('Text')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <div *ngIf="hasError('Text')"
+           class="help-block">Text is required: please fill it!</div>
+    </div>
 
-  <div class="commands">
-    <input *ngIf="editMode" type="button"
-           value="Apply Changes"
-           (click)="onSubmit(order)"
-           class="btn btn-success" />
-    <input *ngIf="!editMode" type="button"
-           value="Create the Order!"
-           (click)="onSubmit(order)"
-           class="btn btn-success" />
-    <input type="button" value="Cancel"
-           (click)="onBack()"
-           class="btn btn-default" />
-  </div>
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback' : hasError('Value')}">
+      <label for="value">Value:</label>
+      <br />
+      <select id="value" name="value"
+              [(ngModel)]="order.Value"
+              formControlName ="Value"
+              class="form-control">
+        <option *ngFor="let num of [0,1,2,3,4,5]" [value]="num">{{num}}</option>
+      </select>
+      <span *ngIf="hasError('Value')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback"  >
+      </span>
+      <div *ngIf="hasError('Value')"
+           class="help-block">
+        Value is required please select it
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error has-feedback' : hasError('Note')}">
+      <label for="text">Order Notes:</label>
+      <br />
+      <textarea id="text"
+                [(ngModel)]="order.Note"
+                formControlName ="Note"
+                placeholder="enter a suitable Note..."
+                class="form-control"></textarea>
+      <span *ngIf="hasError('Note')"
+            aria-hidden="true"
+            class="glyphicon glyphicon-remove form-control-feedback">
+      </span>
+      <div *ngIf="hasError('Note')"
+           class="help-block">
+        N
+      </div>
+    </div>
+
+    <div class="commands">
+      <input *ngIf="editMode" type="button" value="Apply Changes" (click)="onSubmit(order)"
+             class="btn btn-success" />
+      <input *ngIf="!editMode" type="button" value="Create the Order!" (click)="onSubmit(order)"
+             class="btn btn-success" />
+      <input type="button" value="Cancel" (click)="onBack()"
+             class="btn btn-default" />
+    </div>
+  </form>
 </div>

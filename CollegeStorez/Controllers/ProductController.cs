@@ -59,7 +59,6 @@ namespace CollegeStorez.Controllers
 
             //override those properties
             //that should be set from the server only
-            product.StoreId = model.StoreId;
             product.Text = model.Text;
             product.Notes = model.Notes;
             product.ProductName = model.ProductName;
@@ -79,7 +78,7 @@ namespace CollegeStorez.Controllers
         }
 
         /// <summary>
-        /// Edit the Product with given {id}
+        /// Edit the Product with given {id} this allows you to update the product
         /// </summary>
         /// <param name="model">The product view model</param>
         /// <returns></returns>

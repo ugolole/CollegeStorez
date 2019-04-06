@@ -58,8 +58,9 @@ namespace CollegeStorez.Controllers
 
             // override those properties 
             //   that should be set from the server-side only
-            order.ProductId = model.ProductId;
+            //order.ProductId = model.ProductId;
             order.Text = model.Text;
+            order.Value = model.Value;
             order.Note = model.Note;
 
             //properties set from server-side
