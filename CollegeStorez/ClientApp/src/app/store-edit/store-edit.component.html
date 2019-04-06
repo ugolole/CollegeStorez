@@ -40,6 +40,7 @@
         Store Name is required : please fill it
       </div>
     </div>
+
     <div class="form-group">
       <label for="description">Store description:</label>
       <br />
@@ -49,6 +50,7 @@
              placeholder="enter a description..."
              class="form-control" />
     </div>
+
     <div class="form-group">
       <label for="text">Store informative text:</label>
       <br />
@@ -58,6 +60,8 @@
                 placeholder="enter a text..."
                 class="form-control"></textarea>
     </div>
+
+
     <div class="form-group commands">
       <button *ngIf="editMode" type="submit" [disabled]="form.invalid"
               class="btn btn-success">

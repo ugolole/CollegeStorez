@@ -49,6 +49,7 @@ var StoreEditComponent = /** @class */ (function () {
         tempStore.Title = this.form.value.Title;
         tempStore.Description = this.form.value.Description;
         tempStore.StoreName = this.form.value.StoreName;
+        tempStore.Text = this.form.value.Text;
         var url = this.baseUrl + 'api/store';
         //With Edit mode binding is used to acquire the values allowing you to edit them
         //with easy.

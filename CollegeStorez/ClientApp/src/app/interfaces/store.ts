@@ -1,8 +1,8 @@
 export interface Store{
-  Id: number,
-  Title: string,
-  Description: string,
-  Text: string,
-  ImagePath: string,
-  StoreName: string
+  Id: number;
+  Title: string;
+  Description: string;
+  Text: string;
+  ImagePath: string;
+  StoreName: string;
 }

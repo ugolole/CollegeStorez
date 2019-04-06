@@ -61,6 +61,7 @@ export class StoreEditComponent {
     tempStore.Title = this.form.value.Title;
     tempStore.Description = this.form.value.Description;
     tempStore.StoreName = this.form.value.StoreName;
+    tempStore.Text = this.form.value.Text;
 
 
     var url = this.baseUrl + 'api/store';
@@ -132,6 +133,7 @@ export class StoreEditComponent {
     var e = this.getFormControl(name);
     return e && (e.dirty || e.touched) && !e.valid;
   }
+
   onBack() {
     this.router.navigate(['home']);
   }
