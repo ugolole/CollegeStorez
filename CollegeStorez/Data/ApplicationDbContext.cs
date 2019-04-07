@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using CollegeStorez.Data.Model;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
 namespace CollegeStorez.Data
