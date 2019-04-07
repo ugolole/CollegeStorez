@@ -1,7 +1,9 @@
 using CollegeStorez.Data;
+using CollegeStorez.Data.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity; //this is added to support creating user authentication.
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +38,18 @@ namespace CollegeStorez
             //Add the application db context
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //One of the most important steps to adding authentication to the application.
+            //Add ASP.NET Identity support 
+            //below are the properties that the password should support.
+            services.AddIdentity<ApplicationUser, IdentityRole>(opts =>
+            {
+                opts.Password.RequireDigit = true;
+                opts.Password.RequireLowercase = true;
+                opts.Password.RequireUppercase = true;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequiredLength = 7;
+            }).AddEntityFrameworkStores<ApplicationDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,12 +93,18 @@ namespace CollegeStorez
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+                //adding new variables that support user authentication.
+                //creating the role manager and assigning it support type IdentityRole
+                var roleManager = serviceScope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+
+                //creating the user manager and assigning it support type ApplicationUser
+                var userManager = serviceScope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
 
                 //create the db if it doesn't exist and apply any pending migration
                 dbContext.Database.Migrate();
 
                 //seed the database
-                DbSeeder.Seed(dbContext);
+                DbSeeder.Seed(dbContext, roleManager, userManager);
             }
         }
     }

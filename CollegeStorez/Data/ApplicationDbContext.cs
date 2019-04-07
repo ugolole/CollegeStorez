@@ -6,11 +6,12 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using CollegeStorez.Data.Model;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
 namespace CollegeStorez.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         #region Constructor
         public ApplicationDbContext(DbContextOptions options) : base(options)
@@ -47,7 +48,7 @@ namespace CollegeStorez.Data
         #endregion Methods
 
         #region Properties
-        public DbSet<ApplicationUser> Users { get; set; }
+        //public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
