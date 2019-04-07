@@ -2,6 +2,7 @@ import { Component, Inject } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Store } from "../interfaces/store";
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'store',
@@ -14,6 +15,7 @@ export class StoreComponent {
 
   constructor(private activatedRouter: ActivatedRoute,
     private router: Router, private http: HttpClient,
+    public auth: AuthService,
     @Inject('BASE_URL') private baseUrl: string) {
 
     //create an empty store from the store interface

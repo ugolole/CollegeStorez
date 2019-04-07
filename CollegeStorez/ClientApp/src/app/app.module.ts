@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
@@ -20,6 +20,9 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { TrendListComponent } from './trend-list/trend-list.component';
 import { TrendEditComponent } from './trend-edit/trend-edit.compontent';
 import { StoreSearchComponent } from './store-search/store-search.component';
+
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,14 @@ import { StoreSearchComponent } from './store-search/store-search.component';
       { path: "**", component: PageNotFoundComponent }
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

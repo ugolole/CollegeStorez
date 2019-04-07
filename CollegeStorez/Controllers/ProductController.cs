@@ -8,17 +8,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CollegeStorez.Data.Model;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CollegeStorez.Controllers
 {
-    [Route("api/[controller]")]
     public class ProductController : BaseApiController
     {
-      
 
-        #region Construtor
-        public ProductController(ApplicationDbContext context) : base(context) { }
-        #endregion Constructor
+
+        #region Constructor
+        public ProductController(ApplicationDbContext context,
+            RoleManager<IdentityRole> roleManager,
+            UserManager<ApplicationUser> userManager,
+            IConfiguration configuration) : base(context, roleManager, userManager, configuration) { }
+        #endregion Constructor 
 
         #region RESTful conventions method
         /// <summary>
@@ -48,6 +53,7 @@ namespace CollegeStorez.Controllers
         /// <param name="model">The ProductViewModel containing the data to insert</param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize]
         public IActionResult Put([FromBody]ProductViewModel model)
         {
             //return a generic HTTP Status 500 (Server Error)
@@ -83,6 +89,7 @@ namespace CollegeStorez.Controllers
         /// <param name="model">The product view model</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]ProductViewModel model)
         {
             //return a generic HTTP Status 500 (Server Error)
@@ -126,6 +133,7 @@ namespace CollegeStorez.Controllers
         /// <param name="id">The Id of an existing Product</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id) {
             //retrieve the product from the database
             var product = DbContext.Products.Where(i => i.Id == id).FirstOrDefault();

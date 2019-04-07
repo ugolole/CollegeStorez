@@ -6,6 +6,11 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using CollegeStorez.Data.Model;
 using Microsoft.AspNetCore.Identity;
 
+//Below are the command you will need to use when generating the complete database
+//from scratch.
+//dotnet ef migrations add "Identity" -o "Data\Migrations"
+//dotnet ef database drop
+//dotnet ef database update
 namespace CollegeStorez.Data
 {
     public class DbSeeder

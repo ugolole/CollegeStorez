@@ -25,13 +25,21 @@
                   </a>
                 </li>
 
-                <li [routerLinkActive]="['link-active']">
+                <li *ngIf="!this.auth.isLoggedIn()"
+                    [routerLinkActive]="['link-active']">
                   <a [routerLink] ="['/login']" class="textHover">
                     <span class="glyphicon glyphicon-log-in"></span> Login
                   </a>
                 </li>
 
-                <li [routerLinkActive]="['link-active']">
+                <li *ngIf="this.auth.isLoggedIn()">
+                    <a (click)="logout()" class="textHover"> 
+                      <span class="glyphicon glyphicon-log-out" ></span> Logout
+                    </a>
+                </li>
+
+                <li *ngIf="this.auth.isLoggedIn()"
+                    [routerLinkActive]="['link-active']">
                   <a [routerLink] ="['/store/create']" class="textHover">
                     <span class="glyphicon glyphicon-plus textHover"></span> Create Store
                   </a>

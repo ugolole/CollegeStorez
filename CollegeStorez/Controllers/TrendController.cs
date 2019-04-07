@@ -7,17 +7,22 @@ using System.Linq;
 using CollegeStorez.Data;
 using CollegeStorez.Data.Model;
 using Mapster;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CollegeStorez.Controllers
 {
-    [Route("api/[controller]")]
     public class TrendController : BaseApiController
     {
-        
+
 
         #region Constructor
-        public TrendController(ApplicationDbContext context): base(context) { }
-        #endregion
+        public TrendController(ApplicationDbContext context,
+            RoleManager<IdentityRole> roleManager,
+            UserManager<ApplicationUser> userManager,
+            IConfiguration configuration) : base(context, roleManager, userManager, configuration) { }
+        #endregion Constructor 
 
         #region RESTful conventions methods
         /// <summary>
@@ -46,6 +51,7 @@ namespace CollegeStorez.Controllers
         /// </summary>
         /// <param name="model">The ResultViewModel containing the datato insert</param>
         [HttpPut]
+        [Authorize]
         public IActionResult Put([FromBody]TrendViewModel model)
         {
             // return a generic HTTP Status 500 (Server Error)
@@ -80,6 +86,7 @@ namespace CollegeStorez.Controllers
         /// </summary>
         /// <param name="model">The TrendViewModel containing the data to update</param>
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]TrendViewModel model)
         {
             // return a generic HTTP Status 500 (Server Error)
@@ -119,6 +126,7 @@ namespace CollegeStorez.Controllers
         /// </summary>
         /// <param name="id">The ID of an existing Trend</param>
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             // retrieve the trend from the Database

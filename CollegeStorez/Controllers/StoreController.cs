@@ -8,6 +8,10 @@ using CollegeStorez.Data;
 using CollegeStorez.Data.Model;
 using CollegeStorez.ViewModels;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace CollegeStorez.Controllers
 {
@@ -15,7 +19,10 @@ namespace CollegeStorez.Controllers
     {
 
         #region Constructor
-        public StoreController(ApplicationDbContext context) : base(context) { }
+        public StoreController(ApplicationDbContext context,
+            RoleManager<IdentityRole> roleManager,
+            UserManager<ApplicationUser> userManager,
+            IConfiguration configuration) : base(context, roleManager, userManager, configuration) { }
         #endregion Constructor 
 
         /// <summary>
@@ -46,14 +53,15 @@ namespace CollegeStorez.Controllers
         /// <param name="model">The StoreViewModel containing the data to insert</param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize]
         public IActionResult Put([FromBody]StoreViewModel model)
         {
             //return a generic HTTP Status 500 (Server Error)
             //if the client payload is invalide
             if (model == null) return new StatusCodeResult(500);
 
-            //handle the insert (without object mapping)
-            var store = new Store();
+            //mapping the store with model
+            var store = model.Adapt<Store>();
 
             //properties taken from the request
             store.Title = model.Title;
@@ -67,7 +75,8 @@ namespace CollegeStorez.Controllers
             store.LastModifiedDate = store.CreatedDate;
 
             //set a temporary creater using the Admin user's userId
-            store.UserId = DbContext.Users.Where(u => u.UserName == "Admin").FirstOrDefault().Id;
+            //store.UserId = DbContext.Users.Where(u => u.UserName == "Admin").FirstOrDefault().Id;
+            store.UserId = User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             //add the new quiz
             DbContext.Stores.Add(store);
@@ -84,6 +93,7 @@ namespace CollegeStorez.Controllers
         /// <param name="model">The StoreView Model containing  the data to update</param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public IActionResult Post([FromBody]StoreViewModel model)
         {
             //return generic HTTP Status 500 (Server Error)
@@ -128,6 +138,7 @@ namespace CollegeStorez.Controllers
         /// <param name="id">The Id of the existing test</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             //retrieve the store from the database
