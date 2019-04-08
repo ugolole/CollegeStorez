@@ -3,14 +3,14 @@
   <Class Name="CollegeStorez.Data.Model.ApplicationUser">
     <Position X="1" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAACBAAAACAAAAAAAAAAAAAAAAAAAAACAwIAAQAAAAA=</HashCode>
+      <HashCode>IAAgFAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAQABAAA=</HashCode>
       <FileName>Data\Model\ApplicationUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CollegeStorez.Data.Model.Order">
     <Position X="7.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>MAACBAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAhCAEAAAA=</HashCode>
+      <HashCode>MAACBAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAgCAEAAAA=</HashCode>
       <FileName>Data\Model\Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -18,7 +18,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CollegeStorez.Data.Model.Product">
-    <Position X="7" Y="0.5" Width="1.5" />
+    <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAEiAAAAAAAAAAAAAAAAEIAAAAAAAAAEAgAACQAIAAA=</HashCode>
       <FileName>Data\Model\Product.cs</FileName>
@@ -30,7 +30,7 @@
   <Class Name="CollegeStorez.Data.Model.Store">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAjRAAAAAAgBEAAAAAAAAgAAAAAAABAAgAACAAAAAQ=</HashCode>
+      <HashCode>IAAjRAAAAAAgBEAAAAAAAIgAAAAAAABAAwAACAAAAAQ=</HashCode>
       <FileName>Data\Model\Store.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -38,13 +38,23 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CollegeStorez.Data.Model.Trend">
-    <Position X="2.75" Y="5.75" Width="1.5" />
+    <Position X="4" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAiBAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAACQAAAAA=</HashCode>
+      <HashCode>IgAiBAAAAAAAAAAAAAAAEAAAAAAAAAAAAwAACQAAAAA=</HashCode>
       <FileName>Data\Model\Trend.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Store" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CollegeStorez.Data.Model.Token">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAADAAAAAAAAAAAAgAAAAAgAAAAAAAAAAwAgAAAAAAA=</HashCode>
+      <FileName>Data\Model\Token.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Leelawadee UI" Size="10" />

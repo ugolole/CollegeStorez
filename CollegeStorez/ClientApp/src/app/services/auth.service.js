@@ -21,7 +21,6 @@ var AuthService = /** @class */ (function () {
     }
     // performs the login
     AuthService.prototype.login = function (username, password) {
-        var _this = this;
         var url = "api/token/auth";
         var data = {
             username: username,
@@ -32,6 +31,24 @@ var AuthService = /** @class */ (function () {
             // space-separated list of scopes for which the token is issued
             scope: "offline_access profile email"
         };
+        return this.getAuthFromServer(url, data);
+    };
+    // try to refresh token
+    AuthService.prototype.refreshToken = function () {
+        var url = "api/token/auth";
+        var data = {
+            client_id: this.clientId,
+            // required when signing up with username/password
+            grant_type: "refresh_token",
+            refresh_token: this.getAuth().refresh_token,
+            // space-separated list of scopes for which the token is issued
+            scope: "offline_access profile email"
+        };
+        return this.getAuthFromServer(url, data);
+    };
+    // retrieve the access & refresh tokens from the server
+    AuthService.prototype.getAuthFromServer = function (url, data) {
+        var _this = this;
         return this.http.post(url, data)
             .map(function (res) {
             var token = res && res.token;

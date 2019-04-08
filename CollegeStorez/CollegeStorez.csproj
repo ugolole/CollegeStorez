@@ -53,6 +53,7 @@
     <None Remove="ClientApp\src\app\product-edit\product-edit.component.ts" />
     <None Remove="ClientApp\src\app\product-list\product-list.component.ts" />
     <None Remove="ClientApp\src\app\services\auth.interceptor.ts" />
+    <None Remove="ClientApp\src\app\services\auth.response.interceptor.ts" />
     <None Remove="ClientApp\src\app\services\auth.service.ts" />
     <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
@@ -76,6 +77,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\product-edit\product-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product-list\product-list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\auth.interceptor.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\auth.response.interceptor.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\auth.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />

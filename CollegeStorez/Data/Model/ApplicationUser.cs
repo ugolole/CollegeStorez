@@ -52,5 +52,10 @@ namespace CollegeStorez.Data.Model
         /// </summary>
         public virtual List<Store> Stores {get; set;}
         #endregion Lazy-load Properties
+
+        /// <summary>
+        /// A list of all refresh tokens issued for this users.
+        /// </summary>
+        public virtual List<Token> Tokens { get; set; }
     }
 }

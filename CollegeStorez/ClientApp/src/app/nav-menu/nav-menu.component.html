@@ -13,8 +13,8 @@
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
             <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
-                    <a [routerLink]='["/home"]' (click)='collapse()' class="textHover">
+                <li [routerLinkActive]='["link-active"]' >
+                    <a [routerLink]='["/home"]' class="textHover">
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
                 </li>
@@ -41,7 +41,7 @@
                 <li *ngIf="this.auth.isLoggedIn()"
                     [routerLinkActive]="['link-active']">
                   <a [routerLink] ="['/store/create']" class="textHover">
-                    <span class="glyphicon glyphicon-plus textHover"></span> Create Store
+                    <span class="glyphicon glyphicon-plus "></span> Create Store
                   </a>
                 </li>
             </ul>

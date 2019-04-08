@@ -23,6 +23,8 @@ import { StoreSearchComponent } from './store-search/store-search.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthResponseInterceptor } from './services/auth.response.interceptor';
+import { t } from '@angular/core/src/render3';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,11 @@ import { AuthInterceptor } from './services/auth.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthResponseInterceptor,
       multi: true
     }
   ],
