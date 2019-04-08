@@ -20,4 +20,13 @@ export class NavMenuComponent {
       this.router.navigate(["home"]);
     }
   }
+  isExpanded = false;
+
+  collapse() {
+    this.isExpanded = false;
+  }
+
+  toggle() {
+    this.isExpanded = !this.isExpanded;
+  }
 }

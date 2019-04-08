@@ -28,7 +28,7 @@ var StoreListComponent = /** @class */ (function () {
                 url += "Latest/";
                 break;
             case "byTitle":
-                this.title = "Random Stores";
+                this.title = "By Title Stores";
                 url += "ByTitle/";
                 break;
             case "random":
