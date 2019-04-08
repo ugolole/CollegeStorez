@@ -27,14 +27,14 @@
 
                 <li *ngIf="!this.auth.isLoggedIn()"
                     [routerLinkActive]="['link-active']">
-                  <a [routerLink] ="['/login']" class="textHover">
-                    <span class="glyphicon glyphicon-log-in"></span> Login
+                  <a [routerLink]="['/login']" class="textHover">
+                    <span class="glyphicon glyphicon-log-in"></span> Login / Register
                   </a>
                 </li>
 
                 <li *ngIf="this.auth.isLoggedIn()">
                     <a (click)="logout()" class="textHover"> 
-                      <span class="glyphicon glyphicon-log-out" ></span> Logout
+                      <span class="glyphicon glyphicon-log-out" ></span> Logout 
                     </a>
                 </li>
 

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
 namespace CollegeStorez.Data.Model
@@ -19,17 +15,6 @@ namespace CollegeStorez.Data.Model
         #endregion Constructor
 
         #region Properties
-        //[Key]
-        //[Required]
-        //public string Id { get; set; }
-
-        //[Required]
-        //[MaxLength(128)]
-        //public string UserName { get; set; }
-
-        //[Required]
-        //public string Email { get; set; }
-
         public string DisplayName { get; set; }
         public string Notes { get; set; }
 
