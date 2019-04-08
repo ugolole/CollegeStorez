@@ -24,7 +24,7 @@ import { StoreSearchComponent } from './store-search/store-search.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { AuthResponseInterceptor } from './services/auth.response.interceptor';
-import { t } from '@angular/core/src/render3';
+import { RegisterComponent } from './user/register.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { t } from '@angular/core/src/render3';
     OrderListComponent,
     TrendListComponent,
     TrendEditComponent,
-    StoreSearchComponent
+    StoreSearchComponent,
+    RegisterComponent
     
   ],
   imports: [
@@ -68,6 +69,7 @@ import { t } from '@angular/core/src/render3';
       { path: 'trend/edit/:id', component: TrendEditComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
       { path: "**", component: PageNotFoundComponent }
     ])
   ],
