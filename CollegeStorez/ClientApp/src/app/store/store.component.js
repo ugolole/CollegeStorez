@@ -11,11 +11,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var StoreComponent = /** @class */ (function () {
-    function StoreComponent(activatedRouter, router, http, baseUrl) {
+    function StoreComponent(activatedRouter, router, http, auth, baseUrl) {
         var _this = this;
         this.activatedRouter = activatedRouter;
         this.router = router;
         this.http = http;
+        this.auth = auth;
         this.baseUrl = baseUrl;
         //create an empty store from the store interface
         this.store = {};
@@ -63,7 +64,7 @@ var StoreComponent = /** @class */ (function () {
             templateUrl: "./store.component.html",
             styleUrls: ['./store.component.less']
         }),
-        __param(3, core_1.Inject('BASE_URL'))
+        __param(4, core_1.Inject('BASE_URL'))
     ], StoreComponent);
     return StoreComponent;
 }());

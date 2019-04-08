@@ -4,14 +4,16 @@ using CollegeStorez.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CollegeStorez.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190407031722_Identity")]
+    partial class Identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,34 +186,6 @@ namespace CollegeStorez.Data.Migrations
                     b.ToTable("Storez");
                 });
 
-            modelBuilder.Entity("CollegeStorez.Data.Model.Token", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ClientId")
-                        .IsRequired();
-
-                    b.Property<DateTime>("CreatedDate");
-
-                    b.Property<DateTime>("LastModifiedDate");
-
-                    b.Property<int>("Type");
-
-                    b.Property<string>("UserId")
-                        .IsRequired();
-
-                    b.Property<string>("Value")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Tokens");
-                });
-
             modelBuilder.Entity("CollegeStorez.Data.Model.Trend", b =>
                 {
                     b.Property<int>("Id")
@@ -372,14 +346,6 @@ namespace CollegeStorez.Data.Migrations
                 {
                     b.HasOne("CollegeStorez.Data.Model.ApplicationUser", "User")
                         .WithMany("Stores")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("CollegeStorez.Data.Model.Token", b =>
-                {
-                    b.HasOne("CollegeStorez.Data.Model.ApplicationUser", "User")
-                        .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

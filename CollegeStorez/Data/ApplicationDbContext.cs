@@ -10,7 +10,7 @@ using CollegeStorez.Data.Model;
 
 namespace CollegeStorez.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         #region Constructor
         public ApplicationDbContext(DbContextOptions options) : base(options)
@@ -25,6 +25,7 @@ namespace CollegeStorez.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ApplicationUser>().ToTable("Users");
             modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Stores).WithOne(i => i.User);
+            modelBuilder.Entity<ApplicationUser>().HasMany(u => u.Tokens).WithOne(i => i.User);
 
             modelBuilder.Entity<Store>().ToTable("Storez");
             modelBuilder.Entity<Store>().Property(i => i.Id).ValueGeneratedOnAdd();
@@ -43,15 +44,20 @@ namespace CollegeStorez.Data
             modelBuilder.Entity<Trend>().ToTable("Trending");
             modelBuilder.Entity<Trend>().Property(i => i.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<Trend>().HasOne(i => i.Store).WithMany(u => u.Trends);
+
+            modelBuilder.Entity<Token>().ToTable("Tokens");
+            modelBuilder.Entity<Token>().Property(i => i.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<Token>().HasOne(i => i.User).WithMany(u => u.Tokens);
         }
         #endregion Methods
 
         #region Properties
-        public DbSet<ApplicationUser> Users { get; set; }
+        //public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Trend> Trends { get; set; }
+        public DbSet<Token> Tokens { get; set; }
 
         #endregion Properties
 
