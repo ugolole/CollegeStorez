@@ -1,0 +1,94 @@
+.about {
+  position: relative;
+  padding: 0;
+  text-align: center;
+  width: 80%;
+  z-index: -10;
+}
+@media (max-width: 767px) {
+  .about {
+    width: 100%;
+    top: 100px;
+  }
+}
+.about .about-details .about-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+.about .about-details .about-image img {
+  width: 150px;
+  height: 150px;
+  clear: both;
+  margin: auto;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #707d8c;
+  padding: 2px;
+}
+.about .about-details .about-info-block {
+  width: 100%;
+  border-radius: 20px;
+  position: absolute;
+  top: 80px;
+  background: #f0f0f0;
+  z-index: 0;
+  padding: 60px 0 30px 0;
+}
+.about .about-details .about-info-block .about-heading {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 0;
+}
+.about .about-details .about-info-block .navigation {
+  margin: 20px 15px 0px 15px;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid #a3aab1;
+}
+.about .about-details .about-info-block .navigation li {
+  display: inline-block;
+  margin: 0 0 -6px 0;
+  padding: 0;
+}
+.about .about-details .about-info-block .navigation li a {
+  background: transparent;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 30px;
+  float: left;
+}
+.about .about-details .about-info-block .navigation li.active a {
+  background: #4189C7;
+  color: #fff;
+}
+.about .about-details .about-info-block .about-body {
+  padding: 20px 20px 30px 20px;
+}
+.about .about-details .about-info-block .about-body .tab-content h4 {
+  width: 100%;
+  margin: 10px 0;
+  color: #333;
+}
+.about .about-details .about-info-block .commands {
+  border-top: 1px solid #dddddd;
+  width: 80%;
+  padding: 15px 0 0 0;
+  margin: 15px auto 0 auto;
+}
+.about .about-details .about-info-block .commands .btn {
+  min-width: 140px;
+  margin: 0 10px;
+}
+.about .about-details .about-info-block .commands .edit {
+  border-top: 1px solid #dddddd;
+  width: 80%;
+  padding: 15px 0 0 0;
+  margin: 15px auto 0 auto;
+}
+.text {
+  text-align: justify;
+  font-size: 18pt;
+  padding-left: 20px;
+  padding-right: 20px;
+}

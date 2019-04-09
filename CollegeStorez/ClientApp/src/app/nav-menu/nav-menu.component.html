@@ -1,7 +1,11 @@
 <div class='main-nav'>
     <div class='navbar navbar-inverse'>
         <div class='navbar-header'>
-            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+            <button type='button' class='navbar-toggle'
+                    data-toggle='collapse'
+                    data-target='.navbar-collapse'
+                    [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+
                 <span class='sr-only'>Toggle navigation</span>
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
@@ -13,8 +17,8 @@
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
             <ul class='nav navbar-nav'>
-                <li [routerLinkActive]='["link-active"]' >
-                    <a [routerLink]='["/home"]' class="textHover">
+                <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                    <a [routerLink]='["/home"]' (click)='collapse()' class="textHover">
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
                 </li>

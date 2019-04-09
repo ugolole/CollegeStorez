@@ -9,12 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AboutComponent = /** @class */ (function () {
     function AboutComponent() {
-        this.title = "About";
     }
     AboutComponent = __decorate([
         core_1.Component({
-            selector: "about",
-            templateUrl: "./about.component.html"
+            selector: 'about',
+            templateUrl: './about.component.html',
+            styleUrls: ['./about.component.less']
         })
     ], AboutComponent);
     return AboutComponent;
