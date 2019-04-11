@@ -25,6 +25,7 @@ var StoreComponent = /** @class */ (function () {
         //the next page containing the store information.
         var id = +this.activatedRouter.snapshot.params["id"];
         console.log(id);
+        //make the store available through dependency injection.
         if (id) {
             //communicates with the server-side controllers to get the needed data
             var url = this.baseUrl + "api/store/" + id;

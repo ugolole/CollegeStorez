@@ -42,7 +42,7 @@ namespace CollegeStorez
 
             //Add the application db context
             //This needs to be updated before we publish the applicaiton to the production.
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //One of the most important steps to adding authentication to the application.
             //Add ASP.NET Identity support 

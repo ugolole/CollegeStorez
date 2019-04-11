@@ -34,6 +34,8 @@ namespace CollegeStorez.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
+            //mapster allows us to map the data recieved from the linq query with 
+            //the model that has been 
             var order = DbContext.Orders.Where(i => i.Id == id).FirstOrDefault();
 
             //handle request asking for non-existing order
@@ -44,6 +46,8 @@ namespace CollegeStorez.Controllers
                     Error = String.Format("Order ID {0} has not been found", id)
                 });
             }
+            //mapping the returned result using view model and sending this result 
+            //back to the web browser as JSON.
             return new JsonResult(order.Adapt<OrderViewModel>(),  JsonSettings);
         }
 
@@ -154,9 +158,7 @@ namespace CollegeStorez.Controllers
         [HttpGet("All/{productId}")]
         public IActionResult All(int productId)
         {
-            var orders = DbContext.Orders
-            .Where(q => q.ProductId == productId)
-            .ToArray();
+            var orders = DbContext.Orders.Where(q => q.ProductId == productId).ToArray();
             return new JsonResult(
             orders.Adapt<OrderViewModel[]>(), JsonSettings);
         }
