@@ -42,8 +42,6 @@ namespace CollegeStorez.Controllers
                 Formatting = Formatting.Indented
             };
         }
-        #endregion
-
-       
+        #endregion  
     }
 }
