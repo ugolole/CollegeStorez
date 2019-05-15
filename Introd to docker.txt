@@ -1,0 +1,46 @@
+INTRODUCTION TO DOCKER SQL IMAGE CREATION 
+
+STEP 1
+Once you have installed docker into you application you will have to pull the MSSQL linux server for docker this can be 
+done using the following commmand. 
+This command allows you to download the latest SQL server for linux docker image
+docker pull microsoft/mssql-server-linux
+This should show a bunch of numers and letters and the message pull complete.
+
+STEP 2
+Once that's complete you can run the following command to launch the instace of the docker image you just downloaded
+docker run -d --name sql_server -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=76Ionach76' -p 1433:1433 microsoft/mssql-server-linux
+Explanation of the parameters
+
+-d: this launches the docker container in daemon mode - this means that it runs in its own background and does not 
+    need it's own terminal - omitting this parameter would mean that it would run in it's own terminal
+
+--name sql_server: The options allows you to name your container - this can be handy when stopping or starting your 
+  contianer from the terminal
+
+-e 'ACCEPT_EULR=Y': y shown you agree with the (End User licence Agreement) - this is important in order to have SQL
+  Server linux running i bielive or windows.
+
+-e 'SA_PASSWORD=76Ionach67': this is a required parameter that allows you to set the database password
+
+-p 1433:1433 : This maps the local port 1433 to port 1433 on the container - this is the default TCP port that SQL 
+   Server uses to listen to  connections.
+
+microsoft/mssql-server-linux : this tells docker which image to use
+
+NOTE: make sure to use a very strong password otherwise this will not work.
+
+STEP 3
+check if the docker container is working using the following command 
+docker ps 
+
+STEP 4 install sql-cli 
+
+Run the following command to install the sql-cli command line tool - this tool allows you to run quires and other commands
+against your SQL server instance. Assuming you have nodejs installed into you machine.
+
+STEP 5 Connect the SQL Server
+now that the sql-cli is installed - we can start working with SQL Server via the Terminal windows, connecting the server
+is done using the mssql command followed by the username and passord parameters
+
+mssql -u sa -p 76Ionach67

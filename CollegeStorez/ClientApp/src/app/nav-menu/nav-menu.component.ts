@@ -8,10 +8,9 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./nav-menu.component.less']
 })
 export class NavMenuComponent {
-  constructor(
-    public auth: AuthService,
-    private router: Router
-  ) {
+  isExpanded = false;
+
+  constructor( public auth: AuthService, private router: Router ) {
   }
 
   logout() {
@@ -19,5 +18,14 @@ export class NavMenuComponent {
     if (this.auth.logout()) {
       this.router.navigate(["home"]);
     }
+  }
+ 
+
+  collapse() {
+    this.isExpanded = false;
+  }
+
+  toggle() {
+    this.isExpanded = !this.isExpanded;
   }
 }

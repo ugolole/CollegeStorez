@@ -1,5 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
@@ -7,115 +6,99 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-
-    <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
+    <ApplicationIcon/>
+    <OutputType>Exe</OutputType>
+    <StartupObject/>
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Mapster" Version="3.3.2" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Mapster" Version="4.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.App"/>
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1"/>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9"/>
   </ItemGroup>
-  
   <ItemGroup>
     <Content Include="ClientApp\tsconfig.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-
-  <PropertyGroup>
-    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
-    <ApplicationIcon />
-    <OutputType>Exe</OutputType>
-    <StartupObject />
-  </PropertyGroup>
-
   <ItemGroup>
-    <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Content Remove="$(SpaRoot)**" />
-    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    <Content Remove="$(SpaRoot)**"/>
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**"/>
   </ItemGroup>
-
   <ItemGroup>
-    <None Remove="ClientApp\src\app\about\about.component.ts" />
-    <None Remove="ClientApp\src\app\interfaces\order.ts" />
-    <None Remove="ClientApp\src\app\interfaces\product.ts" />
-    <None Remove="ClientApp\src\app\interfaces\store.ts" />
-    <None Remove="ClientApp\src\app\interfaces\token.response.ts" />
-    <None Remove="ClientApp\src\app\interfaces\trend.ts" />
-    <None Remove="ClientApp\src\app\interfaces\user.ts" />
-    <None Remove="ClientApp\src\app\login\login.component.ts" />
-    <None Remove="ClientApp\src\app\order-edit\order-edit.component.ts" />
-    <None Remove="ClientApp\src\app\order-list\order-list.component.ts" />
-    <None Remove="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
-    <None Remove="ClientApp\src\app\product-edit\product-edit.component.ts" />
-    <None Remove="ClientApp\src\app\product-list\product-list.component.ts" />
-    <None Remove="ClientApp\src\app\services\auth.interceptor.ts" />
-    <None Remove="ClientApp\src\app\services\auth.response.interceptor.ts" />
-    <None Remove="ClientApp\src\app\services\auth.service.ts" />
-    <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts" />
-    <None Remove="ClientApp\src\app\store-list\store-list.component.ts" />
-    <None Remove="ClientApp\src\app\store-search\store-search.component.ts" />
-    <None Remove="ClientApp\src\app\store\store.component.ts" />
-    <None Remove="ClientApp\src\app\trend-edit\trend-edit.compontent.ts" />
-    <None Remove="ClientApp\src\app\trend-list\trend-list.component.ts" />
-    <None Remove="ClientApp\src\app\user\register.component.ts" />
+    <None Remove="ClientApp\src\app\about\about.component.ts"/>
+    <None Remove="ClientApp\src\app\interfaces\order.ts"/>
+    <None Remove="ClientApp\src\app\interfaces\product.ts"/>
+    <None Remove="ClientApp\src\app\interfaces\store.ts"/>
+    <None Remove="ClientApp\src\app\interfaces\token.response.ts"/>
+    <None Remove="ClientApp\src\app\interfaces\trend.ts"/>
+    <None Remove="ClientApp\src\app\interfaces\user.ts"/>
+    <None Remove="ClientApp\src\app\login\login.component.ts"/>
+    <None Remove="ClientApp\src\app\order-edit\order-edit.component.ts"/>
+    <None Remove="ClientApp\src\app\order-list\order-list.component.ts"/>
+    <None Remove="ClientApp\src\app\pagenotfound\pagenotfound.component.ts"/>
+    <None Remove="ClientApp\src\app\product-edit\product-edit.component.ts"/>
+    <None Remove="ClientApp\src\app\product-list\product-list.component.ts"/>
+    <None Remove="ClientApp\src\app\services\auth.interceptor.ts"/>
+    <None Remove="ClientApp\src\app\services\auth.response.interceptor.ts"/>
+    <None Remove="ClientApp\src\app\services\auth.service.ts"/>
+    <None Remove="ClientApp\src\app\store-edit\store-edit.component.ts"/>
+    <None Remove="ClientApp\src\app\store-list\store-list.component.ts"/>
+    <None Remove="ClientApp\src\app\store-search\store-search.component.ts"/>
+    <None Remove="ClientApp\src\app\store\store.component.ts"/>
+    <None Remove="ClientApp\src\app\trend-edit\trend-edit.compontent.ts"/>
+    <None Remove="ClientApp\src\app\trend-list\trend-list.component.ts"/>
+    <None Remove="ClientApp\src\app\user\register.component.ts"/>
   </ItemGroup>
-
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\about\about.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\order.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\product.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\store.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\token.response.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\trend.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\user.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\order-edit\order-edit.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\order-list\order-list.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\pagenotfound\pagenotfound.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\product-edit\product-edit.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\product-list\product-list.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\services\auth.interceptor.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\services\auth.response.interceptor.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\services\auth.service.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\store-search\store-search.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\trend-edit\trend-edit.compontent.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\trend-list\trend-list.component.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\user\register.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\about\about.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\order.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\product.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\store.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\token.response.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\trend.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\user.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\login\login.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\order-edit\order-edit.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\order-list\order-list.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\pagenotfound\pagenotfound.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\product-edit\product-edit.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\product-list\product-list.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\services\auth.interceptor.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\services\auth.response.interceptor.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\services\auth.service.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\store-edit\store-edit.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\store-list\store-list.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\store-search\store-search.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\store\store.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\trend-edit\trend-edit.compontent.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\trend-list\trend-list.component.ts"/>
+    <TypeScriptCompile Include="ClientApp\src\app\user\register.component.ts"/>
   </ItemGroup>
-
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
-    <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode"/>
     </Exec>
-    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
-    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install"/>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE."/>
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..."/>
   </Target>
-
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
-    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' " />
-
-    <!-- Include the newly-built files in the publish output -->
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install"/>
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build --prod"/>
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:ssr -- --prod" Condition=" '$(BuildServerSideRenderer)' == 'true' "/>
     <ItemGroup>
-      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**" />
-      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
+      <DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)dist-server\**"/>
+      <DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'"/>
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
-
 </Project>

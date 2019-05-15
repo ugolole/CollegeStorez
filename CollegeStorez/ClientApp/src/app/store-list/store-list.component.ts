@@ -32,7 +32,7 @@ export class StoreListComponent implements OnInit {
           url += "Latest/";
           break;
         case "byTitle":
-          this.title = "Random Stores";
+          this.title = "By Title Stores";
           url += "ByTitle/";
           break;
         case "random":

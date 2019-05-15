@@ -88,6 +88,7 @@ namespace CollegeStorez.Controllers
             }
             catch (Exception ex)
             {
+                Console.Write(ex);
                 return new UnauthorizedResult();
             }
         }
@@ -172,6 +173,7 @@ namespace CollegeStorez.Controllers
             }
             catch (Exception ex)
             {
+                Console.Write(ex);
                 return new UnauthorizedResult();
             }
         }

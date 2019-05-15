@@ -39,10 +39,15 @@ namespace CollegeStorez
 
             //Add the entity framework support for sql server
             services.AddEntityFrameworkSqlServer();
-
-            //Add the application db context
-            //This needs to be updated before we publish the applicaiton to the production.
+            
+            //Setting up different connection strings for different environment.
+#if DEBUG
+            //Add the application db context for developement.
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+#else
+            //Add the application db context for product 
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductionConnection")));
+#endif
 
             //One of the most important steps to adding authentication to the application.
             //Add ASP.NET Identity support 

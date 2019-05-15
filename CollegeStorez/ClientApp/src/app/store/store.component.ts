@@ -27,6 +27,7 @@ export class StoreComponent {
     var id = +this.activatedRouter.snapshot.params["id"];
     console.log(id);
 
+    //make the store available through dependency injection.
     if (id) {
       //communicates with the server-side controllers to get the needed data
       var url = this.baseUrl + "api/store/" + id;
@@ -46,6 +47,7 @@ export class StoreComponent {
   onEdit() {
     this.router.navigate(["store/edit", this.store.Id]);
   }
+
 
   onDelete() {
     //the confirm is a javascript technique that adds a pop-up before the item gets

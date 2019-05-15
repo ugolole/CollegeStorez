@@ -13,9 +13,11 @@ import { User } from "../interfaces/user";
 export class RegisterComponent {
   title: string;
   form: FormGroup;
+
   constructor(private router: Router,
     private fb: FormBuilder,
     private http: HttpClient,
+
     @Inject('BASE_URL') private baseUrl: string) {
     this.title = "New User Registration";
 
