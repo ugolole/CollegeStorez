@@ -2,6 +2,7 @@
   <img id="login-img" class="login-img"
        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
   <h2 class="login-title">{{title}}</h2>
+
   <form [formGroup]="form" (ngSubmit)="onSubmit()"
         class="login-form">
 
@@ -47,6 +48,8 @@
       Sign in
     </button>
   </form>
+
+
   <div class="login-link">
     <a href="#">
       Forgot the password?
